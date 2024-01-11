@@ -34,6 +34,9 @@ import TrackingPage from '../pages/tracking.svelte';
 import WishlistPage from '../pages/wishlist.svelte';
 import WriteReviewsPage from '../pages/write-reviews.svelte';
 
+import SigninPage from '../pages/signin.svelte';
+import SignUpPage from '../pages/signup.svelte';
+
 var routes = [
   {
     path: '/',
@@ -178,6 +181,14 @@ var routes = [
   {
     path: '/about/',
     component: AboutPage,
+  },
+  {
+    path: '/signin/',
+    component: SigninPage,
+  },
+  {
+    path: '/signup/',
+    component: SignUpPage,
   },
   {
     path: '(.*)',
