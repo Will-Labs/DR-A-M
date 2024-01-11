@@ -1,7 +1,7 @@
 <Page name="home">
 
 	<!-- Page Content -->
-	<div class="page-content content-area pt-40 pb-0">
+	<div class="page-content content-area pt-8 pb-0">
 		
 		<!-- Search backdrop -->
 		<div class="searchbar-backdrop"></div>

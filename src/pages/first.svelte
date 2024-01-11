@@ -1,6 +1,4 @@
 <svelte:head>
-	@import ../styles.css;
-
 	<script src="https://kit.fontawesome.com/667417c7ec.js" crossorigin="anonymous"></script>
 	<meta name="description" content="Admin" />
 	<script src="https://accounts.google.com/gsi/client"></script>
@@ -9,8 +7,6 @@
 </svelte:head>
 
 <script>
-	
-
 	
 </script>
 	
@@ -76,9 +72,9 @@
         </button>
 
 
-		<br>	<center>	<div onclick={() => window.location.href='/home'} 
+		<br>	<center>	<div 
 			class="bg-red-500 rounded-3xl text-center mt-8 text-black font-extrabold text-4xl">
-			HOME NAVIG8
+			<a href="/home">HOME NAVIG8f</a>
 		</div></center>
 			
     </div>
