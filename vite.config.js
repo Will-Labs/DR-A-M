@@ -13,6 +13,14 @@ export default async () => {
       svelte(),
 
     ],
+    css: {
+      postcss: {
+        plugins: [
+          require('tailwindcss'),
+          require('autoprefixer'),
+        ],
+      },
+    },
     root: SRC_DIR,
     base: '',
     publicDir: PUBLIC_DIR,

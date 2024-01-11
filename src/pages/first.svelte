@@ -1,4 +1,6 @@
 <svelte:head>
+	@import ../styles.css;
+
 	<script src="https://kit.fontawesome.com/667417c7ec.js" crossorigin="anonymous"></script>
 	<meta name="description" content="Admin" />
 	<script src="https://accounts.google.com/gsi/client"></script>
@@ -75,8 +77,7 @@
 
 
 		<br>	<center>	<div onclick={() => window.location.href='/home'} 
-			class="bg-red-500 rounded-3xl text-center mt-8 text-black font-extrabold text-4xl"
-			style="text-align:center; color:white; font-weight:900; padding:10px; background-color:gray; width:20%">
+			class="bg-red-500 rounded-3xl text-center mt-8 text-black font-extrabold text-4xl">
 			HOME NAVIG8
 		</div></center>
 			
@@ -88,6 +89,7 @@
 
 </div>
 <style>
+
 	.label{ 
 		font-size: 1.5rem;
         margin: 10px 0 0;
