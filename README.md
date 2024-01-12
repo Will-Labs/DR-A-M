@@ -4,6 +4,4 @@
 
 - login working again (appwrite)
 - The firebase deploy to work
-
-Why are so many things broken??
  
