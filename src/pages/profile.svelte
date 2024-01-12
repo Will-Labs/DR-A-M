@@ -29,7 +29,11 @@
 						<img src="../assets/img/avatar/avatarface.jpg" alt=""/>
 					</div>
 					<div class="dz-content">
-						<h2 class="name">William Smith</h2>
+						{#if $user && $user.name}
+  							<h2 class="name">{$user.name}</h2>
+						{:else if $user && $user.email}
+						    <h2 class="name">{$user.email}</h2>
+						{/if}
 						<p class="text-primary">London, England</p>
 					</div>
 				</div>
@@ -125,6 +129,10 @@
 					<!-- </div> -->
 				</swiper-container>
 			
+				<div style="width: 40%; margin: auto; margin-top: 50px">
+					<Button large round fill>Upgrade</Button>
+				</div>
+
 			</div>
 		</div>	
 	</div>
@@ -132,5 +140,6 @@
 </div>
 
 <script>
-	import { Link } from 'framework7-svelte';
+	import { Link, Button } from 'framework7-svelte';
+	import { user } from '../js/user';
 </script>
