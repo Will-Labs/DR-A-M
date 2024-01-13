@@ -26,6 +26,8 @@
     "css-loader": "^6.9.0",
     "dom7": "^4.0.6",
     "file-loader": "^6.2.0",
+    "firebase": "^10.7.1",
+    "firebase-cli": "^1.2.0",
     "framework7": "^8.3.0",
     "framework7-icons": "^5.0.5",
     "framework7-svelte": "^8.3.0",

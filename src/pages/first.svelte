@@ -27,15 +27,24 @@
 					</div>
 					<h2 class="logo-name">D.R.one</h2>
 					<p class="logo-text">Delivery App</p>
-					<h2 class='label pt-8'>
+					<div id="hidetag"><h2 class='label pt-8'>
 						Sky Delivery
 						<br>
 						<br>
 						Environmentally Safe
-					</h2></div>
+					</h2></div></div>
 			</div>
 			<div class="clearfix pb-4">
-				<a href="/signin/" class="button-large button button-social rounded-xl button-fill mb-40"><img src="/assets/img/social/inbox.png" alt=""> <span>Login With Email</span></a>
+				<a id="hidelogbtn"  on:click={() => {document.getElementById('inputboxes').style.display = 'block'; document.getElementById('hidelogbtn').style.display = 'none'; document.getElementById('hidetag').style.display = 'none';}} class="button-large button button-social rounded-xl button-fill mb-40"><img src="/assets/img/social/inbox.png" alt=""> <span>Login With Email</span></a>
+				
+				<div id="inputboxes" style="display:none;"><center>
+					<input type="text" placeholder="Enter Your Email Address..." id="myemailbox" bind:value={email}
+					class="text-align-center text-3xl w-[70vw]" style="color:white; background-color:#a79c91;border-radius:10px;"/>
+				<br><input type="text" placeholder="Enter Password..." id="mypassbox" bind:value={password}
+					class="text-align-center text-3xl w-[60vw]" style="color:white; background-color:#a79c91;border-radius:10px;"/>
+				<a class="button-large button button-social rounded-xl button-outline google mt-15 mb-40" on:click={() => login_or_register(email, password)} style="background-color:green; color:white">
+					<img src="/assets/img/svg/logout.svg" alt=""> <span>Submit</span></a><br></center></div>
+				
 				<a class="button-large button button-social rounded-xl button-outline google mt-15" on:click={google_login}><img src="/assets/img/social/google-mail.png" alt=""> <span>Login with Google</span></a>
 				<a class="button-large button button-social rounded-xl button-fill facebook mt-15" on:click={facebook_login}><img src="/assets/img/social/facebook.png" alt=""> <span>Login with facebook</span></a>
 				<a href="/home/" class="button-large button rounded-xl button-fill color-red mt-15"><span>HOME NAVIG8</span></a>
@@ -46,7 +55,30 @@
 
 <script>
 	import { account } from '../js/appwrite';
+	import { writable } from 'svelte/store';
+	import { ID } from 'appwrite';
+	import { f7 } from 'framework7-svelte';
+
 	export let f7router;
+
+	let name = '';
+	let email = '';
+	let password = '';
+	
+	async function login_or_register(email, password) {
+		try {
+			const userExists = await account.checkUserExists(email);
+			if (userExists) {
+				const loginResponse = await account.createEmailSession(email, password);
+				f7router.navigate('/home/');
+			} else {
+				const registerResponse = await account.create(ID.unique(), email, password);
+				f7router.navigate('/signin/');
+			}
+		} catch (error) {
+			console.log(error.message);
+		}
+	}
 
 	const google_login = async () => {
 		try {
@@ -76,3 +108,18 @@
 	}
 
 </script>
+
+<style>
+    #myemailbox::placeholder {
+        color: white;
+    }
+    #mypassbox::placeholder {
+        color: white;
+    }
+
+	
+	.item-content::before,
+	.item-content::after {
+		content: none !important;
+	}
+</style>

@@ -1,8 +1,8 @@
 <div class="page welcome-screen">
 	<div class="page-content">
 		<div class="container welcome-inner">
-			<div class="text-align-center mb-70">
-				<div class="main-logo center mb-50">
+			<div class="text-align-center mb-4">
+				<div class="main-logo center mb-4">
 					<div class="logo-icon">
 							<center>
 						<path d="M71.9842 92.0001H4.06284C2.07803 92.0001 0.469116 90.3912 0.469116 88.4064C0.469116 86.4216 2.07803 84.8127 4.06284 84.8127H71.9842C73.969 84.8127 75.5779 86.4216 75.5779 88.4064C75.5779 90.3912 73.969 92.0001 71.9842 92.0001Z" fill="#F7DBB3"/>
@@ -24,16 +24,21 @@
 						<path style="fill:#F7DBB3;" d="M 19.160156 15.820312 C 21.004687 15.820312 22.5 17.315625 22.5 19.160156 C 22.5 21.004687 21.004687 22.5 19.160156 22.5 C 17.315625 22.5 15.820312 21.004687 15.820312 19.160156 " transform="matrix(1.666667,0,0,1.666667,0,0)"/>
 						<path style="fill:#04764e;" d="M 19.640625 19.640625 L 14.859375 14.859375 " transform="matrix(1.666667,0,0,1.666667,0,0)"/>
 					</center>
-				</div>
+					</div>
 					<h2 class="logo-name">D.R.one</h2>
-					<p class="logo-text">Delivery App</p>	
-				</div>
-				<h2 class="ma-0">Login / Register</h2>
+					<p class="logo-text">Delivery App</p>
+					<h2 class='label pt-8'>
+						Sky Delivery
+						<br>
+						<br>
+						Environmentally Safe
+					</h2></div>
 			</div>
-			<div class="clearfix pb-30">
+			<div class="clearfix pb-4">
 				<a href="/signin/" class="button-large button button-social rounded-xl button-fill mb-40"><img src="/assets/img/social/inbox.png" alt=""> <span>Login With Email</span></a>
-				<a class="button-large button button-social rounded-xl button-outline google" on:click={google_login}><img src="/assets/img/social/google-mail.png" alt=""> <span>Login with Google</span></a>
+				<a class="button-large button button-social rounded-xl button-outline google mt-15" on:click={google_login}><img src="/assets/img/social/google-mail.png" alt=""> <span>Login with Google</span></a>
 				<a class="button-large button button-social rounded-xl button-fill facebook mt-15" on:click={facebook_login}><img src="/assets/img/social/facebook.png" alt=""> <span>Login with facebook</span></a>
+				<a href="/home/" class="button-large button rounded-xl button-fill color-red mt-15"><span>HOME NAVIG8</span></a>
 			</div>
 		</div>
 	</div>
