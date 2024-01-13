@@ -129,8 +129,8 @@
 					<!-- </div> -->
 				</swiper-container>
 			
-				<div style="width: 40%; margin: auto; margin-top: 50px">
-					<Button large round fill>Upgrade</Button>
+				<div style="width: 80%; margin: auto; margin-top: 50px">
+					<Button large round fill>Upgrade to Store Owner</Button>
 				</div>
 
 			</div>

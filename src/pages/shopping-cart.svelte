@@ -83,7 +83,8 @@
 									</a>
 								</div>
 							</li>
-							<li class="swipeout cart-item">
+							<!--li class="swipeout cart-item">
+
 								<div class="item-content swipeout-content">
 									<div class="item-inner">
 										<div class="item-media">
@@ -327,12 +328,34 @@
     </div>
 	
 	<!-- Toolbar -->
+
+	<br><br><center><input type="file" class="" id="imageUpload" name="imageUpload" accept="image/*"><br><br><br>
+	
+	<div class="w-[80vw]"><input type="text" placeholder="Enter Food Title..." id="foodbox1"
+	class="text-align-center text-3xl w-[70vw]" style="color:white; background-color:#a79c91;border-radius:10px;"/>
+
+	<br><input type="text" placeholder="Enter Food Description..." id="foodbox2"
+	class="text-align-center text-3xl w-[60vw]" style="color:white; background-color:#a79c91;border-radius:10px;"/>
+	<br><input type="number" placeholder="Enter Food Price..." id="foodbox3"
+	class="text-align-center text-3xl w-[60vw]" style="color:white; background-color:#a79c91;border-radius:10px;"/>
 	<div class="toolbar toolbar-bottom container footer-button padding">
-		<a href="/order-details/" class="button-large button button-fill rounded-xl">PLACE ORDER</a>
-	</div>
+		<a href="/order-details/" class="button-large button button-fill rounded-xl">UPLOAD FOOD ITEM</a></center>
+	</div></div>
 	
 </Page>
 
 <script>
 	import { Page, Link } from 'framework7-svelte';
 </script>
+
+<style>
+    #foodbox1::placeholder {
+        color: white;
+	}
+    #foodbox2::placeholder {
+        color: white;
+	}
+    #foodbox3::placeholder {
+        color: white;
+	}
+</style>

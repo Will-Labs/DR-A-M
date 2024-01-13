@@ -43,8 +43,11 @@
 				<br><input type="text" placeholder="Enter Password..." id="mypassbox" bind:value={password}
 					class="text-align-center text-3xl w-[60vw]" style="color:white; background-color:#a79c91;border-radius:10px;"/>
 				<a class="button-large button button-social rounded-xl button-outline google mt-15 mb-40" on:click={() => login_or_register(email, password)} style="background-color:green; color:white">
-					<img src="/assets/img/svg/logout.svg" alt=""> <span>Submit</span></a><br></center></div>
-				
+					<img src="/assets/img/svg/logout.svg" alt=""> <span>Login</span></a><br>
+
+					<a class="button-large button button-social rounded-xl button-outline google mt-15 mb-40" on:click={() => register(email, password)} style="background-color:green; color:white">
+						<img src="/assets/img/svg/logout.svg" alt=""> <span>Register</span></a><br></div>
+					
 				<a class="button-large button button-social rounded-xl button-outline google mt-15" on:click={google_login}><img src="/assets/img/social/google-mail.png" alt=""> <span>Login with Google</span></a>
 				<a class="button-large button button-social rounded-xl button-fill facebook mt-15" on:click={facebook_login}><img src="/assets/img/social/facebook.png" alt=""> <span>Login with facebook</span></a>
 				<a href="/home/" class="button-large button rounded-xl button-fill color-red mt-15"><span>HOME NAVIG8</span></a>
@@ -61,51 +64,54 @@
 
 	export let f7router;
 
+	let store = writable(null);
+
 	let name = '';
 	let email = '';
 	let password = '';
-	
-	async function login_or_register(email, password) {
+
+	const init = () => {
 		try {
-			const userExists = await account.checkUserExists(email);
-			if (userExists) {
-				const loginResponse = await account.createEmailSession(email, password);
-				f7router.navigate('/home/');
-			} else {
-				const registerResponse = await account.create(ID.unique(), email, password);
-				f7router.navigate('/signin/');
-			}
+			store.set(account.get());
+		} catch (e) {
+			store.set(null);   }   }
+
+
+	const login = async (email, password) => {
+		const promise = account.createEmailSession(email, password);
+		init();
+		promise.then(function (response) {
+			f7router.navigate('/home/');     });   }
+
+
+	const register = (email, password) => {
+		const promise = account.create(ID.unique(), email, password);
+		init();
+		promise.then(function (response) {
+			f7router.navigate('/home/');    });  }
+
+
+	const login_or_register = async (email, password) => {
+		try {
+			await login(email, password);
 		} catch (error) {
-			console.log(error.message);
-		}
-	}
+			await register(email, password);   }  }
+
 
 	const google_login = async () => {
 		try {
 			const baseUrl = window.location.origin;
 			const response = account.createOAuth2Session('google', `${baseUrl + '/#!/home/'}`, `${baseUrl + '/#!/welcome/'}`);
-
-			// const promise = account.get();
-			// promise.then((res) => {
-			// 	console.log(res);
-			// 	f7router.navigate('/home/');
-			// })
-			// .catch((err) => {
-			// 	console.log(err);
-			// });
 		} catch (err) {
-			console.error('Google login error: ', err);
-		}
-	}
+			console.error('Google login error: ', err);    }    }
+
 
 	const facebook_login = async () => {
 		try {
 			const baseUrl = window.location.origin;
 			const response = account.createOAuth2Session('facebook', `${baseUrl + '/#!/home/'}`, `${baseUrl + '/#!/welcome/'}`);
 		} catch (err) {
-			console.error('Facebook login error: ', err);
-		}
-	}
+			console.error('Facebook login error: ', err);   }    }
 
 </script>
 
