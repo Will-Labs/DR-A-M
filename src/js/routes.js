@@ -9,6 +9,7 @@ import BlogPage from '../pages/blog.svelte';
 import BlogDetailPage from '../pages/blog-detail.svelte';
 import BreadCrumbPage from '../pages/breadcrumbs.svelte';
 import CheckOutCouponApplyPage from '../pages/checkout-coupon-apply.svelte';
+import FakeOrderPage from '../pages/fakeorder.svelte';
 import CheckOutPaymentMethodPage from '../pages/checkout-payment-method.svelte';
 import CheckOutShippingAddressPage from '../pages/checkout-shipping-address.svelte';
 import ColorThemesPage from '../pages/color-themes.svelte';
@@ -53,6 +54,10 @@ var routes = [
   {
     path: '/blog-detail/',
     component: BlogDetailPage,
+  },
+  {
+    path: '/fakeorder/',
+    component: FakeOrderPage,
   },
   {
     path: '/breadcrumbs/',

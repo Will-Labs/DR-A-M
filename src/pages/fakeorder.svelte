@@ -6,7 +6,7 @@
 					<path d="M0.439312 13.0606L5.75391 18.3752C6.04683 18.6682 6.43069 18.8146 6.81459 18.8146C7.1985 18.8146 7.58236 18.6682 7.87528 18.3752C8.46103 17.7894 8.46103 16.8397 7.87528 16.2539L5.12133 13.5H22.5C23.3284 13.5 24 12.8284 24 12C24 11.1716 23.3284 10.5 22.5 10.5H5.12133L7.87528 7.7461C8.46103 7.1603 8.46103 6.21057 7.87528 5.62477C7.28944 5.03898 6.33975 5.03898 5.75391 5.62477L0.439312 10.9394C-0.146437 11.5251 -0.146437 12.4749 0.439312 13.0606Z" fill="black"/>
 				</svg>
 			</Link>
-            <div class="title">Orders</div>
+            <div class="title">FakeOrder</div>
             <div class="right">
                 <a href="#" class="link panel-open" data-panel="left">
 					<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -39,7 +39,7 @@
 			<div class="toolbar toolbar-bottom tabbar tab-style-1 mb-2">
 				<div class="toolbar-inner">
 					<Link tabLink="#tab-1" tabLinkActive>All</Link>
-					<Link href="/fakeorder/" class="bg-yellow-300 rounded-3xl px-8">Fake Order</Link>
+					<Link href="/shopping-cart/" class="bg-yellow-300 rounded-3xl px-8">Store Page</Link>
 					<Link tabLink="#tab-3">Done</Link>
 				</div>
 			</div>
@@ -89,20 +89,35 @@
 			</div>
 		</div>
     </div>
+	<hr>
 
-	<br><br><center><input type="file" class="" id="imageUpload" name="imageUpload" accept="image/*"><br><br><br>
-	
-	<div class="w-[80vw]"><input type="text" placeholder="Enter Food Title..." id="foodbox1"
-	class="text-align-center text-3xl w-[70vw]" style="color:white; background-color:#a79c91;border-radius:10px;"/>
-
-	<br><input type="text" placeholder="Enter Food Description..." id="foodbox2"
-	class="text-align-center text-3xl w-[60vw]" style="color:white; background-color:#a79c91;border-radius:10px;"/>
-	<br><input type="number" placeholder="Enter Food Price..." id="foodbox3"
-	class="text-align-center text-3xl w-[60vw]" style="color:white; background-color:#a79c91;border-radius:10px;"/>
-	<div class="toolbar toolbar-bottom container footer-button padding">
-		<a href="/order-details/" class="button-large button button-fill rounded-xl">UPLOAD FOOD ITEM</a></center>
+	<div class="w-[80vw] mx-auto pt-12"><center>
+	<div class="flex items-center p-1 sm:p-4 border border-gray-200 rounded dark:border-gray-700"  style="color:black">
+		<input id="bordered-radio-1" type="radio"  value="1" name="bordered-radio" class="w-4 h-4">
+		<label for="bordered-radio-1" class="w-full py-1 sm:py-4 ms-2 text-xs sm:text-sm font-medium text-black truncate">Business #1</label>
+		<input id="bordered-radio-2" type="radio"  value="2" name="bordered-radio" class="w-4 h-4" checked>
+		<label for="bordered-radio-2" class="w-full py-1 sm:py-4 ms-2 text-xs sm:text-sm font-medium text-black truncate">Business #2</label>
+		<input id="bordered-radio-3" type="radio"  value="3" name="bordered-radio" class="w-4 h-4">
+		<label for="bordered-radio-3" class="w-full py-1 sm:py-4 ms-2 text-xs sm:text-sm font-medium text-black truncate">Business #3</label>
 	</div>
 
+<br><br><input class="input-text bg-gray-400 text-white font-extrabold rounded-xl p-4" id="foodbox" placeholder="Enter Food Name..." type="order" name="order" required />
+
+<select id="dropOffLocation" name="dropOffLocation" placeholder="Dropoff Location" required 
+class="bg-gray-300 border border-gray-300 text-gray-900 text-lg p-8 rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+<option selected>Choose Your Dropoff Location</option>
+<option value="1">Villa Mella #1</option>
+<option value="2">Villa Mella #2</option>
+<option value="3">Villa Mella #3</option>
+<option value="4">Villa Mella #4</option>
+</select>
+
+	<button type="submit" class="submit_button mt-8 bg-green-400 w-[50vw] rounded-3xl font-extrabold text-black p-4">
+	<!-- <button type="submit" class="submit_button" onclick="document.getElementById('box1').style.display='none'; document.getElementById('box2').style.display='block';"> -->
+		<img src="../assets/img/order.png" fill="#fff" alt=""> 
+		<span>Send Order</span>
+	</button></center>
+	</div>
 
 	
 
@@ -114,13 +129,7 @@
 </script>
 
 <style>
-    #foodbox1::placeholder {
-        color: white;
-	}
-    #foodbox2::placeholder {
-        color: white;
-	}
-    #foodbox3::placeholder {
+    #foodbox::placeholder {
         color: white;
 	}
 </style>
