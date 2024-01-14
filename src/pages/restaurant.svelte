@@ -9,12 +9,12 @@
 			<div class="top-bar">
 				<a href="/shopping-cart/" class="notification-bar">
 					<div class="info">
-						<span class="text">Good Morning</span>
-						{#if $user && $user.name}
+						<span class="text">Burger King <br>Villa Mella, SD</span>
+						<!--{#if $user && $user.name}
   							<h2 class="title">{$user.name}</h2>
 						{:else if $user && $user.email}
 						    <h2 class="title">{$user.email}</h2>
-						{/if}
+						{/if}-->
 					</div>
 					<div class="media">
 						<a href="#" class="link panel-open pt-8" data-panel="left">
@@ -41,7 +41,7 @@
 			<form data-search-container=".search-list" data-search-in=".item-title" class="searchbar searchbar-init search-box list-search-bx">
 				<div class="searchbar-inner">
 					<div class="searchbar-input-wrap">
-						<input type="search"  placeholder="Search beverages or foods"/>
+						<input type="search"  placeholder="Search Burger King VM"/>
 						<i class="searchbar-icon" style="width: 24px; height: 24px;">
 							<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
 								<path d="M9.65925 19.3102C11.8044 19.3103 13.8882 18.5946 15.5806 17.2764L21.9653 23.6612C22.4423 24.1218 23.2023 24.1086 23.663 23.6316C24.1123 23.1664 24.1123 22.4288 23.663 21.9636L17.2782 15.5788C20.5491 11.3682 19.7874 5.30335 15.5769 2.03244C11.3663 -1.23846 5.30149 -0.476784 2.03058 3.73376C-1.24033 7.9443 -0.478646 14.0092 3.73189 17.2801C5.42702 18.597 7.51269 19.3113 9.65925 19.3102ZM4.52915 4.52732C7.36245 1.69396 11.9561 1.69391 14.7895 4.52721C17.6229 7.36052 17.6229 11.9542 14.7896 14.7876C11.9563 17.6209 7.36261 17.621 4.52925 14.7877C4.5292 14.7876 4.5292 14.7876 4.52915 14.7876C1.69584 11.9749 1.67915 7.39796 4.49181 4.56465C4.50424 4.55217 4.51667 4.53974 4.52915 4.52732Z" fill="#C9C9C9"/>
@@ -62,13 +62,13 @@
 					<swiper-slide style="width:auto" class="pl-4">
 						<div class="card-overlay style-1 bg-primary">
 							<div class="dz-media">
-								<img src="../assets/img/products/featured/pic1.png" alt=""/>
+								<img src="../assets/img/products/featured/pic6.png" alt=""/>
 							</div>
 							<div class="dz-info">
-								<h5 class="item-title title"><a href="/restaurant/">Pizza Hut L Queso</a></h5>
+								<h5 class="item-title title"><a href="/item-details/">The Whopper</a></h5>
 								<div class="dz-meta">
 									<ul>
-										<li class="price"><sup>$</sup>580<del>$699</del></li>
+										<li class="price"><sup>$</sup>320 <del>$399</del></li>
 									</ul>
 								</div>
 							</div>
@@ -77,13 +77,13 @@
 					<swiper-slide style="width:auto">
 						<div class="card-overlay style-1 bg-primary">
 							<div class="dz-media">
-								<img src="../assets/img/products/featured/pic2.png" alt=""/>
+								<img src="../assets/img/products/featured/pic8.png" alt=""/>
 							</div>
 							<div class="dz-info">
-								<h5 class="item-title title"><a href="/restaurant/">Indonesian Tea</a></h5>
+								<h5 class="item-title title"><a href="/item-details/">Hershey's Pie</a></h5>
 								<div class="dz-meta">
 									<ul>
-										<li class="price">$250<del>$299</del></li>
+										<li class="price">$150 <del>$229</del></li>
 									</ul>
 								</div>
 							</div>
@@ -92,13 +92,13 @@
 					<swiper-slide style="width:auto">
 						<div class="card-overlay style-1 bg-primary">
 							<div class="dz-media">
-								<img src="../assets/img/products/featured/pic3.png" alt=""/>
+								<img src="../assets/img/products/featured/pic7.png" alt=""/>
 							</div>
 							<div class="dz-info">
-								<h5 class="item-title title"><a href="/restaurant/">KFC Combo Familia</a></h5>
+								<h5 class="item-title title"><a href="/item-details/">Fish Combo #2</a></h5>
 								<div class="dz-meta">
 									<ul>
-										<li class="price"><sup>$</sup>349<del>$399</del></li>
+										<li class="price"><sup>$</sup>320<del>$399</del></li>
 									</ul>
 								</div>
 							</div>
@@ -107,13 +107,13 @@
 					<swiper-slide style="width:auto">
 						<div class="card-overlay style-1 bg-primary">
 							<div class="dz-media">
-								<img src="../assets/img/products/featured/pic4.png" alt=""/>
+								<img src="../assets/img/products/featured/pic11.png" alt=""/>
 							</div>
 							<div class="dz-info">
-								<h5 class="item-title title"><a href="/restaurant/">Tylenol Ultra</a></h5>
+								<h5 class="item-title title"><a href="/item-details/">Fries de Pollo</a></h5>
 								<div class="dz-meta">
 									<ul>
-										<li class="price">$12<del>$15</del></li>
+										<li class="price">$250<del>$275</del></li>
 									</ul>
 								</div>
 							</div>
@@ -122,13 +122,13 @@
 					<swiper-slide style="width:auto">
 						<div class="card-overlay style-1 bg-primary">
 							<div class="dz-media">
-								<img src="../assets/img/products/featured/pic5.png" alt=""/>
+								<img src="../assets/img/products/featured/pic9.png" alt=""/>
 							</div>
 							<div class="dz-info">
-								<h5 class="item-title title"><a href="/restaurant/">BON XGrande</a></h5>
+								<h5 class="item-title title"><a href="/item-details/">Cono Helado</a></h5>
 								<div class="dz-meta">
 									<ul>
-										<li class="price">$275<del>$544</del></li>
+										<li class="price">$99<del>$144</del></li>
 									</ul>
 								</div>
 							</div>
@@ -146,6 +146,23 @@
 					<swiper-slide style="width:auto" class=" pl-4">
 						<div class="categories-bx">
 							<div class="icon-bx">
+								<a on:click={() => {foods.style.display = 'none'; beverages.style.display = 'block';}}>
+									<svg enable-background="new 0 0 48 48" height="24" viewBox="0 0 48 48" width="24" xmlns="http://www.w3.org/2000/svg">
+										<path d="m43 47.5h-38c-2.5 0-4.5-1.9-4.5-4.1v-9.8c0-1.1.9-2 2-2h43.1c1.1 0 2 .9 2 2v9.8c-.1 2.2-2.1 4.1-4.6 4.1zm-38.6-12v7.8s.2.2.6.2h38c.4 0 .6-.2.6-.3v-7.8h-39.2z" fill="#fff"/>
+										<path d="m45.5 23.8h-43c-1.1 0-2-.9-2-2v-3.8c0-9.6 7.9-17.5 17.5-17.5h12c9.7 0 17.5 7.9 17.5 17.5v3.8c0 1.1-.9 2-2 2zm-41.1-4h39.2v-1.8c0-7.5-6.1-13.6-13.6-13.6h-12c-7.5 0-13.6 6.1-13.6 13.6z" fill="#fff"/>
+										<path d="m45.5 30h-43c-1.1 0-2-.9-2-2s.9-2 2-2h43.1c1.1 0 2 .9 2 2s-1 2-2.1 2z" fill="#fff"/>
+									</svg>
+								</a>
+							</div>
+							<div class="dz-content">
+								<h5 class="title"><a on:click={() => {foods.style.display = 'none'; beverages.style.display = 'block';}}>Foods</a>
+								<span class="menus text-primary">23 Items</span>
+							</div>
+						</div>
+					</swiper-slide>
+					<swiper-slide style="width:auto">
+						<div class="categories-bx">
+							<div class="icon-bx">
 								<a href="/products/">
 									<svg enable-background="new 0 0 48 48" height="24" viewBox="0 0 48 48" width="24" xmlns="http://www.w3.org/2000/svg">
 										<path d="m30.1 47.5h-21.8c-.9 0-1.7-.7-1.9-1.6l-5.9-30.5c-.1-.6 0-1.2.4-1.6.4-.5.9-.7 1.5-.7h33.5c.6 0 1.1.3 1.5.7s.5 1 .4 1.6l-5.8 30.5c-.2.9-1 1.6-1.9 1.6zm-20.2-3.9h18.6l5.1-26.6h-28.8z" fill="#fff"/>
@@ -158,24 +175,7 @@
 							</div>
 							<div class="dz-content">
 								<h5 class="title"><a href="/products/">Beverages</a></h5>
-								<span class="menus text-primary">67 Menus</span>
-							</div>
-						</div>
-					</swiper-slide>
-					<swiper-slide style="width:auto">
-						<div class="categories-bx">
-							<div class="icon-bx">
-								<a href="/products/">
-									<svg enable-background="new 0 0 48 48" height="24" viewBox="0 0 48 48" width="24" xmlns="http://www.w3.org/2000/svg">
-										<path d="m43 47.5h-38c-2.5 0-4.5-1.9-4.5-4.1v-9.8c0-1.1.9-2 2-2h43.1c1.1 0 2 .9 2 2v9.8c-.1 2.2-2.1 4.1-4.6 4.1zm-38.6-12v7.8s.2.2.6.2h38c.4 0 .6-.2.6-.3v-7.8h-39.2z" fill="#fff"/>
-										<path d="m45.5 23.8h-43c-1.1 0-2-.9-2-2v-3.8c0-9.6 7.9-17.5 17.5-17.5h12c9.7 0 17.5 7.9 17.5 17.5v3.8c0 1.1-.9 2-2 2zm-41.1-4h39.2v-1.8c0-7.5-6.1-13.6-13.6-13.6h-12c-7.5 0-13.6 6.1-13.6 13.6z" fill="#fff"/>
-										<path d="m45.5 30h-43c-1.1 0-2-.9-2-2s.9-2 2-2h43.1c1.1 0 2 .9 2 2s-1 2-2.1 2z" fill="#fff"/>
-									</svg>
-								</a>
-							</div>
-							<div class="dz-content">
-								<h5 class="title"><a href="/products/">Foods</a></h5>
-								<span class="menus text-primary">23 Menus</span>
+								<span class="menus text-primary">67 Items</span>
 							</div>
 						</div>
 					</swiper-slide>
@@ -194,7 +194,7 @@
 							</div>
 							<div class="dz-content">
 								<h5 class="title"><a href="/products/">Pizza</a></h5>
-								<span class="menus text-primary">28 Menus</span>
+								<span class="menus text-primary">28 Items</span>
 							</div>
 						</div>
 					</swiper-slide>
@@ -211,7 +211,7 @@
 							</div>
 							<div class="dz-content">
 								<h5 class="title"><a href="/products/">Drink</a></h5>
-								<span class="menus text-primary">12 Menus</span>
+								<span class="menus text-primary">12 Items</span>
 							</div>
 						</div>
 					</swiper-slide>
@@ -230,7 +230,7 @@
 							</div>
 							<div class="dz-content">
 								<h5 class="title"><a href="/products/">Lunch</a></h5>
-								<span class="menus text-primary">67 Menus</span>
+								<span class="menus text-primary">67 Items</span>
 							</div>
 						</div>
 					</swiper-slide>
@@ -247,34 +247,39 @@
 							</div>
 							<div class="dz-content">
 								<h5 class="title"><a href="/products/">Burger</a></h5>
-								<span class="menus text-primary">22 Menus</span>
+								<span class="menus text-primary">22 Items</span>
 							</div>
 						</div>
 					</swiper-slide>
 				<!-- </div> -->
 			</swiper-container>
 			
+
+
+
+
+
 			<!-- Featured Beverages -->
-			<div class="title-bar">
-				<h4 class="dz-title">Mis Promociones</h4>
-				<a href="/products/" class="button text-capitalize">More</a>
+			<div class="title-bar" id="foods" bind:this={foods} style="display:block;">
+				<!--h4 class="dz-title">Mis Promociones</h4>
+				<a href="/products/" class="button text-capitalize">More</a-->
 			</div>
 			<div class="list search-list mt-0 mb-20 searchbar-found item-list">
 				<ul class="grid grid-cols-1 medium-grid-cols-2 grid-gap">
 					<li>
 						<div class="item-bx item-list">
 							<div class="dz-media">
-								<a href="/restaurant/"><img src="../assets/img/products/product1a.jpg" alt=""/></a>
+								<a href="/item-details/"><img src="../assets/img/products/product1a.jpg" alt=""/></a>
 								<div class="rating"><i class="fa fa-star"></i> 3.8</div>
 							</div>
 							<div class="dz-info">
 								<div class="dz-head">
-									<h6 class="item-title"><a href="/item-details/">Burger King Combo #4</a></h6>
+									<h6 class="item-title"><a href="/item-details/">Cheeseburger Combo #4</a></h6>
 								</div>
 								<div class="dz-meta">
 									<ul>
-										<li class="price">$360</li>
-										<li class="pts text-primary">250 Pts</li>
+										<li class="price" style="color:#1b5400">1.4 km</li>
+										<li class="pts text-primary">$360</li>
 									</ul>
 								</div>
 							</div>
@@ -283,7 +288,7 @@
 					<li>
 						<div class="item-bx item-list">
 							<div class="dz-media">
-								<a href="/restaurant/"><img src="../assets/img/products/product2a.jpg" alt=""/></a>
+								<a href="/item-details/"><img src="../assets/img/products/product2a.jpg" alt=""/></a>
 								<div class="rating"><i class="fa fa-star"></i> 4.6</div>
 							</div>
 							<div class="dz-info">
@@ -292,8 +297,8 @@
 								</div>
 								<div class="dz-meta">
 									<ul>
-										<li class="price">$12</li>
-										<li class="pts text-primary">50 Pts</li>
+										<li class="price" style="color:#1b5400">2.1 km</li>
+										<li class="pts text-primary">$150</li>
 									</ul>
 								</div>
 							</div>
@@ -302,6 +307,64 @@
 				</ul>
 			</div>
 			
+
+
+
+			
+			<div  style="display:none;" id="beverages" bind:this={beverages}>
+			<!-- Featured Beverages -->
+			<div class="title-bar">
+				<!--h4 class="dz-title">Mis Promociones</h4>
+				<a href="/products/" class="button text-capitalize">More</a-->
+			</div>
+			<div class="list search-list mt-0 mb-20 searchbar-found item-list">
+				<ul class="grid grid-cols-1 medium-grid-cols-2 grid-gap">
+					<li>
+						<div class="item-bx item-list">
+							<div class="dz-media">
+								<a href="/item-details/"><img src="../assets/img/products/product2a.jpg" alt=""/></a>
+								<div class="rating"><i class="fa fa-star"></i> 4.6</div>
+							</div>
+							<div class="dz-info">
+								<div class="dz-head">
+									<h6 class="item-title"><a href="/item-details/">SUCCESS SHOW</a></h6>
+								</div>
+								<div class="dz-meta">
+									<ul>
+										<li class="price" style="color:#1b5400">2.1 km</li>
+										<li class="pts text-primary">$150</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</li>
+					<li>
+						<div class="item-bx item-list">
+							<div class="dz-media">
+								<a href="/item-details/"><img src="../assets/img/products/product1a.jpg" alt=""/></a>
+								<div class="rating"><i class="fa fa-star"></i> 3.8</div>
+							</div>
+							<div class="dz-info">
+								<div class="dz-head">
+									<h6 class="item-title"><a href="/item-details/">Cheeseburger Combo #4</a></h6>
+								</div>
+								<div class="dz-meta">
+									<ul>
+										<li class="price" style="color:#1b5400">1.4 km</li>
+										<li class="pts text-primary">$360</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</li>
+				</ul>
+			</div>
+		</div>
+
+
+
+
+
 		</div>
 	</div>
 	
@@ -310,4 +373,7 @@
 <script>
 	import { Page } from 'framework7-svelte';
 	import { user } from '../js/user.js';
+
+	let foods;
+  	let beverages;
 </script>

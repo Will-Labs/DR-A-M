@@ -21,12 +21,13 @@ import MasterDetailMasterPage from '../pages/master-detail-master.svelte';
 import MessagesPage from '../pages/messages.svelte';
 import MessagesListPage from '../pages/messages-list.svelte';
 import NotificationsPage from '../pages/notifications.svelte';
-import OrderDetailsPage from '../pages/order-details.svelte';
+import OrderDetailsPage from '../pages/active-orders.svelte';
 import PageLoaderComponentPage from '../pages/page-loader-component.svelte';
 import PageTransitionsEffectPage from '../pages/page-transitions-effect.svelte';
 import PageTransitionsPage from '../pages/page-transitions.svelte';
 import ProductsPage from '../pages/products.svelte';
 import ProfilePage from '../pages/profile.svelte';
+import RestaurantPage from '../pages/restaurant.svelte';
 import RewardsPage from '../pages/rewards.svelte';
 import ShoppingCartPage from '../pages/shopping-cart.svelte';
 import StoreLocationsPage from '../pages/store-locations.svelte';
@@ -58,6 +59,10 @@ var routes = [
   {
     path: '/fakeorder/',
     component: FakeOrderPage,
+  },
+  {
+    path: '/restaurant/',
+    component: RestaurantPage,
   },
   {
     path: '/breadcrumbs/',

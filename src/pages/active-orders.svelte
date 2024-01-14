@@ -6,7 +6,7 @@
 					<path d="M0.439312 13.0606L5.75391 18.3752C6.04683 18.6682 6.43069 18.8146 6.81459 18.8146C7.1985 18.8146 7.58236 18.6682 7.87528 18.3752C8.46103 17.7894 8.46103 16.8397 7.87528 16.2539L5.12133 13.5H22.5C23.3284 13.5 24 12.8284 24 12C24 11.1716 23.3284 10.5 22.5 10.5H5.12133L7.87528 7.7461C8.46103 7.1603 8.46103 6.21057 7.87528 5.62477C7.28944 5.03898 6.33975 5.03898 5.75391 5.62477L0.439312 10.9394C-0.146437 11.5251 -0.146437 12.4749 0.439312 13.0606Z" fill="black"/>
 				</svg>
 			</Link>
-            <div class="title">Order Details</div>
+            <div class="title">Active Orders</div>
             <div class="right">
                 <a href="#" class="link panel-open" data-panel="left">
 					<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -30,8 +30,8 @@
 					<img src="../assets/img/avatar/avatar1.jpg" alt=""/>
 				</div>
 				<div class="info">
-					<p>Courir</p>
-					<h6 class="author-name">Hawkins Ochouv</h6>
+					<p>Drone #323</p>
+					<h6 class="author-name">"Sally"</h6>
 				</div>
 				<div class="phone">
 					<svg height="28" viewBox="0 0 32 32" width="28" xmlns="http://www.w3.org/2000/svg">
@@ -48,15 +48,15 @@
 						</svg>
 					</div>
 					<div class="icon-content">
-						<p>Corner St.</p>
-						<p>Franklin Avenue 23574</p>
+						<p>Helados BON VM</p>
+						<p>Avenida 27 Feb 23574</p>
 					</div>
 				</div>
 				<a href="/item-details/" class="button button-fill radius-md button-primary">On Delivery</a>
 			</div>
 			
 			<div class="title-bar border-top pt-20">
-				<h3 class="dz-title">5 Items </h3>
+				<h3 class="dz-title">5 Active Orders</h3>
 				<a href="/home/"><i class="las la-chevron-circle-down"></i></a>
 			</div>
 			<div class="cart-list-area">
@@ -66,17 +66,17 @@
 							<div class="item-content swipeout-content">
 								<div class="item-inner">
 									<div class="item-media">
-										<a href="/item-details/"><img src="../assets/img/menus/pic5.jpg" alt=""></a>
+										<a href="/item-details/"><img src="../assets/img/avatar/avatar2.jpg" alt=""></a>
 									</div>
 									<div class="item-info">
 										<div class="item-head">
-											<h6 class="item-title"><a href="/item-details/">Sweet Lemon Indonesian Tea</a></h6>
+											<h6 class="item-title"><a href="/item-details/">Burger King -> VM #4</a></h6>
 										</div>
 										<div class="item-foot">
 											<ul>
-												<li class="item-price">$8.6</li>
+												<li class="item-price">Drone #152</li>
 												<li class="">1x</li>
-												<li class="text-primary item-total">$8.6</li>
+												<li class="text-primary item-total">$325</li>
 											</ul>
 										</div>
 									</div>
@@ -94,17 +94,17 @@
 							<div class="item-content swipeout-content">
 								<div class="item-inner">
 									<div class="item-media">
-										<a href="/item-details/"><img src="../assets/img/menus/pic2.jpg" alt=""></a>
+										<a href="/item-details/"><img src="../assets/img/avatar/avatar1.jpg" alt=""></a>
 									</div>
 									<div class="item-info">
 										<div class="item-head">
-											<h6 class="item-title"><a href="/item-details/">Hot Coppuccino Latte with Mocha</a></h6>
+											<h6 class="item-title"><a href="/item-details/">Helados BON -> SD #2</a></h6>
 										</div>
 										<div class="item-foot">
 											<ul>
-												<li class="item-price">$5.8</li>
+												<li class="item-price">Drone #323</li>
 												<li class="">2x</li>
-												<li class="text-primary item-total">$11.6</li>
+												<li class="text-primary item-total">$1,160</li>
 											</ul>
 										</div>
 									</div>
@@ -122,17 +122,17 @@
 							<div class="item-content swipeout-content">
 								<div class="item-inner">
 									<div class="item-media">
-										<a href="/item-details/"><img src="../assets/img/menus/pic1.jpg" alt=""></a>
+										<a href="/item-details/"><img src="../assets/img/avatar/avatar3.jpg" alt=""></a>
 									</div>
 									<div class="item-info">
 										<div class="item-head">
-											<h6 class="item-title"><a href="/item-details/">Arabica Latte Ombe Coffee</a></h6>
+											<h6 class="item-title"><a href="/item-details/">Farmacia Pop -> PI #1</a></h6>
 										</div>
 										<div class="item-foot">
 											<ul>
-												<li class="item-price">$5.8</li>
-												<li class="">2x</li>
-												<li class="text-primary item-total">$11.6</li>
+												<li class="item-price">Drone #254</li>
+												<li class="">4x</li>
+												<li class="text-primary item-total">$400</li>
 											</ul>
 										</div>
 									</div>
@@ -150,17 +150,17 @@
 							<div class="item-content swipeout-content">
 								<div class="item-inner">
 									<div class="item-media">
-										<a href="/item-details/"><img src="../assets/img/menus/pic3.jpg" alt=""></a>
+										<a href="/item-details/"><img src="../assets/img/avatar/avatar4.jpg" alt=""></a>
 									</div>
 									<div class="item-info">
 										<div class="item-head">
-											<h6 class="item-title"><a href="/item-details/">Original Hot Coffee</a></h6>
+											<h6 class="item-title"><a href="/item-details/">Hospital Gen -> SD #9</a></h6>
 										</div>
 										<div class="item-foot">
 											<ul>
-												<li class="item-price">$5.8</li>
-												<li class="">2x</li>
-												<li class="text-primary item-total">$11.6</li>
+												<li class="item-price">Drone #115</li>
+												<li class="">1x</li>
+												<li class="text-primary item-total">$11,450</li>
 											</ul>
 										</div>
 									</div>
@@ -178,17 +178,17 @@
 							<div class="item-content swipeout-content">
 								<div class="item-inner">
 									<div class="item-media">
-										<a href="/item-details/"><img src="../assets/img/menus/pic4.jpg" alt=""></a>
+										<a href="/item-details/"><img src="../assets/img/avatar/avatar5.jpg" alt=""></a>
 									</div>
 									<div class="item-info">
 										<div class="item-head">
-											<h6 class="item-title"><a href="/item-details/">Hot Coppuccino Latte with Mocha</a></h6>
+											<h6 class="item-title"><a href="/item-details/">Abogado Sant. -> VM #7</a></h6>
 										</div>
 										<div class="item-foot">
 											<ul>
-												<li class="item-price">$5.8</li>
-												<li class="">2x</li>
-												<li class="text-primary item-total">$11.6</li>
+												<li class="item-price">Drone #298</li>
+												<li class="">1x</li>
+												<li class="text-primary item-total">$550</li>
 											</ul>
 										</div>
 									</div>
