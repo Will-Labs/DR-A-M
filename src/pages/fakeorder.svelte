@@ -104,7 +104,7 @@
 <br><br><input class="input-text bg-gray-400 text-white font-extrabold rounded-xl p-4" id="foodbox" placeholder="Enter Food Name..." type="order" name="order" required />
 
 <select id="dropOffLocation" name="dropOffLocation" placeholder="Dropoff Location" required 
-class="bg-gray-300 border border-gray-300 text-gray-900 text-lg p-8 rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+class="bg-gray-400 border text-white font-extrabold mt-8 text-lg p-2 rounded-lg">
 <option selected>Choose Your Dropoff Location</option>
 <option value="1">Villa Mella #1</option>
 <option value="2">Villa Mella #2</option>

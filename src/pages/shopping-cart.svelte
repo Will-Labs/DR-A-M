@@ -100,6 +100,20 @@
 	<br><input type="number" placeholder="Enter Food Price..." id="foodbox3"
 	class="text-align-center text-3xl w-[60vw]" style="color:white; background-color:#a79c91;border-radius:10px;"/>
 	<div class="toolbar toolbar-bottom container footer-button padding">
+
+		<select id="dropOffLocation" name="dropOffLocation" placeholder="Select Tag" required 
+class="bg-gray-400 text-white font-extrabold text-lg p-2 mb-4 rounded-lg">
+<option selected>Select Food Tag</option>
+<option value="1">Featured</option>
+<option value="2">Popular</option>
+<option value="3">Helados</option>
+<option value="4">Fast Food</option>
+<option value="5">Bebidas</option>
+<option value="6">On Delivery</option>
+<option value="7">Done</option>
+<option value="8">Favorites</option>
+</select>
+
 		<a href="/order-details/" class="button-large button button-fill rounded-xl">UPLOAD FOOD ITEM</a></center>
 	</div>
 
