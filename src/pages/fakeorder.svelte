@@ -1,3 +1,116 @@
+<script>
+	import { Page, Link } from 'framework7-svelte';
+//	import { user } from '$js/user';
+    import axios from 'axios';
+    import { v4 as uuidv4 } from 'uuid';
+//    import { ID, Query } from 'appwrite';
+//    import { goto } from '$app/navigation';
+//    import { writable } from 'svelte/store';
+//	import { databases } from '$js/appwrite';
+//	import { invalidateAll } from '$app/navigation';
+//    import { userOrder_regist, userOrder_update  } from '$lib/users';
+
+const orderUrl = 'http://localhost:5165';
+let businessLocation = '';
+let dropoffLocation = '';
+let orderStatus = '';
+let ongoingOrder = false;
+let orderCancelled = false;
+let orderCompleted = false;
+let intervalId;
+
+const createFakeOrder = async () => {
+  const fakeOrder = {
+    orderID: uuidv4(), //Generate a GUID for the order
+    businessLocation: businessLocation,
+    dropoffLocation: dropoffLocation
+  };
+  console.log(fakeOrder);
+
+  try {
+    const response = await axios.post(`${orderUrl}/order`, fakeOrder);
+
+    if (response.status === 200) {
+        console.log('Order created successfully:', response.data);
+    } else {
+        console.log('Error creating order:', response.status, response.data);
+    }
+    } catch (error) {
+        console.error('Error creating order:', error);
+  }
+}
+
+async function getOrderStatus() {
+  try {
+    const response = await axios.get(`${orderUrl}/order/orderStatus`);
+
+    if (response.status === 200) {
+        orderStatus = response.data; //Update the order status
+        console.log('Order status:', response.data);
+
+        //If the order is completed, stop calling getOrderStatus
+        if (response.data === 'Order Completed') {
+            await completeOrder();
+        }
+    } else {
+        console.log('Error getting order status:', response.status, response.data);
+    }
+  } catch (error) {
+        console.error('Error getting order status:', error);
+  }
+}
+
+function startOrderStatusUpdates() {
+    if(intervalId) {
+        clearInterval(intervalId);
+    }
+  //Start calling getOrderStatus every 5 seconds
+  intervalId = setInterval(getOrderStatus, 5000);
+}
+
+async function handleOrderStart() {
+    await createFakeOrder();
+    await startOrderStatusUpdates();
+    orderCancelled = false;
+}
+
+async function cancelOrder() {
+  try {
+    const response = await axios.post(`${orderUrl}/order/cancelOrder`);
+    
+    //Stop Calling getOrderStatus
+    clearInterval(intervalId);
+	orderStatus = null;
+
+    if (response.status === 200) {
+        orderCancelled = true;
+        console.log('Order cancelled successfully:', response.data);
+    } else {
+        console.log('Error cancelling order:', response.status, response.data);
+    }
+  } catch (error) {
+        console.error('Error cancelling order:', error);
+  }
+}
+
+async function completeOrder() {
+  try {
+    const response = await axios.post(`${orderUrl}/order/completeOrder`);
+
+    clearInterval(intervalId);
+
+    if (response.status === 200) {
+        console.log('Order completed successfully:', response.data);
+    } else {
+        console.log('Error completing order:', response.status, response.data);
+    }
+  } catch (error) {
+        console.error('Error completing order:', error);
+  }
+}
+
+</script>
+
 <Page>
 	<div class="navbar navbar-style-1">
 		<div class="navbar-inner">
@@ -91,6 +204,17 @@
     </div>
 	<hr>
 
+	<form on:submit|preventDefault={handleOrderStart}>
+		<input type="text" name="businessLocation" id="businessLocation" bind:value={businessLocation} placeholder="Enter Business Location..." required />
+		<input type="text" name="dropoffLocation" id="dropoffLocation" bind:value={dropoffLocation} placeholder="Enter Dropoff Location..." required />
+		<button type="submit" class="bg-cyan-300 rounded-md width-auto pa-10 text-slate-50">Submit</button>
+	</form>
+	<button type="button" on:click={cancelOrder} class="bg-red-600 rounded-md width-auto pa-10 text-slate-50">Cancel Order</button>
+
+	{#if orderCancelled}
+		<p class="text-red-600">Order Cancelled</p>
+	{/if}
+
 	<div class="w-[80vw] mx-auto pt-12"><center>
 	<div class="flex items-center p-1 sm:p-4 border border-gray-200 rounded dark:border-gray-700"  style="color:black">
 		<input id="bordered-radio-1" type="radio"  value="1" name="bordered-radio" class="w-4 h-4">
@@ -119,14 +243,13 @@ class="bg-gray-300 border border-gray-300 text-gray-900 text-lg p-8 rounded-lg f
 	</button></center>
 	</div>
 
+	<h1 style="display: {orderStatus ? 'block' : 'none'};" id="status" class="text-center font-extrabold text-2xl mt-8">
+		Order Status: <span class="text-yellow-500">{orderStatus}</span></h1>
+		<p>Order status: {orderStatus}</p>
 	
 
-	
+	   
 </Page>
-
-<script>
-	import { Page, Link } from 'framework7-svelte';
-</script>
 
 <style>
     #foodbox::placeholder {
