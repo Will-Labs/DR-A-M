@@ -57,7 +57,7 @@
 					
 				<p class="mt-0 mb-30">*)Dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore</p>
 				
-				<a href="/checkout-payment-method/" class="button-large button rounded-xl button-fill">Place order <span>$17.4</span></a>
+				<a href="/checkout-payment-method/" on:click={placeOrder}  class="button-large button rounded-xl button-fill">Place order <span>$17.4</span></a>
 				
 			</div>
 			
@@ -75,5 +75,19 @@ export default (props) => {
 </script> -->
 
 <script>
-	import { Link } from 'framework7-svelte';
+    import { Link } from 'framework7-svelte';
+    import { foodStore } from '../js/store.js';
+    import { onDestroy } from 'svelte';
+
+    let unsubscribe = foodStore.subscribe(value => {
+        console.log(value);
+    });
+
+    function placeOrder() {
+        foodStore.set("Pastillas Tylenol");
+    }
+
+    onDestroy(() => {
+        unsubscribe();
+    });
 </script>

@@ -154,6 +154,7 @@
 	import { account } from '../js/appwrite';
 
 	export let f7router;
+    export let f7route;
 
 	let f7params = {
     name: 'drone-svelte', // App name

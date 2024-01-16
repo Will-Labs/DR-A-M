@@ -45,7 +45,7 @@
 					</ul>
 				</div>
 				<div class="price-bx">
-					<h2 class="price"><sup>$</sup>365<del>$399</del></h2>
+					<h2 class="price"><sup>$</sup>275<del>$399</del></h2>
 					<div class="stepper stepper-init stepper-round">
 						<div class="stepper-button-minus"></div>
 						<div class="stepper-input-wrap">
@@ -57,7 +57,7 @@
 					
 				<p class="mt-0 mb-30">*)Dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore</p>
 				
-				<a href="/checkout-payment-method/" class="button-large button rounded-xl button-fill">Place order <span>$17.4</span></a>
+				<a href="/checkout-payment-method/" on:click={placeOrder}  class="button-large button rounded-xl button-fill">Place order <span>$17.4</span></a>
 				
 			</div>
 			
@@ -75,5 +75,19 @@ export default (props) => {
 </script> -->
 
 <script>
-	import { Link } from 'framework7-svelte';
+    import { Link } from 'framework7-svelte';
+    import { foodStore } from '../js/store.js';
+    import { onDestroy } from 'svelte';
+
+    let unsubscribe = foodStore.subscribe(value => {
+        console.log(value);
+    });
+
+    function placeOrder() {
+        foodStore.set("Helados BON Vanilla XL");
+    }
+
+    onDestroy(() => {
+        unsubscribe();
+    });
 </script>

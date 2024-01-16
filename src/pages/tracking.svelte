@@ -88,5 +88,34 @@
 </div>
 
 <script>
-	import { Link } from 'framework7-svelte';
+    import { Link } from 'framework7-svelte';
+    import { foodStore, dropoffStore } from '../js/store.js';
+    import { onDestroy, onMount } from 'svelte';
+
+    let foodValue;
+    let dropoffValue;
+
+    let unsubscribeFoodStore = foodStore.subscribe(value => {
+        foodValue = value;
+    });
+
+    let unsubscribeDropoffStore = dropoffStore.subscribe(value => {
+        dropoffValue = value;
+    });
+
+    let logged = false;
+    $: if (foodValue && dropoffValue && !logged) {
+        console.log('foodStore:', foodValue);
+        console.log('dropoffStore:', dropoffValue);
+        logged = true;
+    }
+
+    onMount(() => {
+        console.clear();
+    });
+
+    onDestroy(() => {
+        unsubscribeFoodStore();
+        unsubscribeDropoffStore();
+    });
 </script>
