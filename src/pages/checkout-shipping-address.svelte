@@ -27,7 +27,7 @@
 				</li>
 				<li>
 					<a class="nav-link active" href="/checkout-shipping-address/">
-						<span>Shipping Address</span> 
+						<span>Dropoff Location</span> 
 					</a>
 				</li>
 				<li>
@@ -42,11 +42,16 @@
 			<form class="form-elements">
 				<div class="list">
 					<ul class="grid grid-cols-1">
-						<li class="item-content item-input item-input-with-value">
+						<li class="item-content item-input">
 							<div class="item-inner">
-								<div class="item-title item-label">Card Holder Name</div>
-								<div class="item-input-wrap">
-									<input type="text" placeholder="Your Name" value="Samuel Witwicky" class="form-control"/>
+								<div class="item-title item-label">Dropoff Location</div>
+								<div class="item-input-wrap input-dropdown-wrap">
+									<select bind:value={dropoffLocation} class="form-control default-select input-with-value">
+										<option disabled selected>Eligir tu Ubicacion</option>
+										<option>Villa Mella #1</option>
+										<option>Villa Mella #2</option>
+										<option>Villa Mella #3</option>
+									</select>
 								</div>
 							</div>
 						</li>
@@ -55,19 +60,6 @@
 								<div class="item-title item-label">Zip/postal Code</div>
 								<div class="item-input-wrap">
 									<input type="number" class="form-control"/>
-								</div>
-							</div>
-						</li>
-						<li class="item-content item-input">
-							<div class="item-inner">
-								<div class="item-title item-label">Country</div>
-								<div class="item-input-wrap input-dropdown-wrap">
-									<select class="form-control default-select input-with-value">
-										<option>Choose your country</option>
-										<option>USA</option>
-										<option>China</option>
-										<option>India</option>
-									</select>
 								</div>
 							</div>
 						</li>
@@ -107,12 +99,24 @@
 		</div>
 	</div>
 	<div class="toolbar toolbar-bottom footer-button padding container">
-		<a href="/tracking/" class="button-large button rounded-lg btn-icon button-fill">Next <i class="fas fa-caret-right"></i></a>
+		<a href="/tracking/" on:click={setDropoffStore} class="button-large button rounded-lg btn-icon button-fill">Next <i class="fas fa-caret-right"></i></a>
 	</div>
 </div>
 
 <script>
 	import { Link } from 'framework7-svelte';
+	import { dropoffStore } from '../js/store.js';
+	import { onMount } from 'svelte';
+
+	let dropoffLocation;
+
+	onMount(() => {
+		dropoffStore.set(null); // or set to another default value
+	});
+
+	function setDropoffStore() {
+		dropoffStore.set(dropoffLocation);
+	}
 </script>
 
 <style>

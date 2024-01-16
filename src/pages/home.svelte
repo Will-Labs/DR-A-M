@@ -69,7 +69,7 @@
 								<h5 class="item-title title"><a href="/item-details-pizza/">Pizza Hut L Queso</a></h5>
 								<div class="dz-meta">
 									<ul>
-										<li class="price"><sup>$</sup>580<del>$699</del></li>
+										<li class="price">$580<del>$699</del></li>
 									</ul>
 								</div>
 							</div>
@@ -82,7 +82,7 @@
 								<img src="../assets/img/products/featured/pic2.png" alt=""/></a>
 							</div>
 							<div class="dz-info">
-								<h5 class="item-title title"><a href="/item-details-tea/">Indonesian Tea</a></h5>
+								<h5 class="item-title title"><a href="/item-details-tea/">Te Congelado</a></h5>
 								<div class="dz-meta">
 									<ul>
 										<li class="price">$250<del>$299</del></li>
@@ -101,7 +101,7 @@
 								<h5 class="item-title title"><a href="/item-details-kfc/">KFC Combo Familia</a></h5>
 								<div class="dz-meta">
 									<ul>
-										<li class="price"><sup>$</sup>349<del>$399</del></li>
+										<li class="price">$349<del>$399</del></li>
 									</ul>
 								</div>
 							</div>
@@ -133,7 +133,7 @@
 								<h5 class="item-title title"><a href="/item-details-bon/">BON XGrande</a></h5>
 								<div class="dz-meta">
 									<ul>
-										<li class="price">$275<del>$544</del></li>
+										<li class="price"><!--sup>$</sup-->$275<del>$544</del></li>
 									</ul>
 								</div>
 							</div>
@@ -269,12 +269,12 @@
 					<li>
 						<div class="item-bx item-list">
 							<div class="dz-media">
-								<a href="/item-details/"><img src="../assets/img/products/product1a.jpg" alt=""/></a>
+								<a href="/restaurant/"><img src="../assets/img/products/product1a.jpg" alt=""/></a>
 								<div class="rating"><i class="fa fa-star"></i> 3.8</div>
 							</div>
 							<div class="dz-info">
 								<div class="dz-head">
-									<h6 class="item-title"><a href="/item-details/">Burger King Combo #4</a></h6>
+									<h6 class="item-title"><a href="/restaurant/">Burger King Combo #4</a></h6>
 								</div>
 								<div class="dz-meta">
 									<ul>
@@ -288,12 +288,12 @@
 					<li>
 						<div class="item-bx item-list">
 							<div class="dz-media">
-								<a href="/item-details/"><img src="../assets/img/products/product2a.jpg" alt=""/></a>
+								<a href="/restaurant/"><img src="../assets/img/products/product2a.jpg" alt=""/></a>
 								<div class="rating"><i class="fa fa-star"></i> 4.6</div>
 							</div>
 							<div class="dz-info">
 								<div class="dz-head">
-									<h6 class="item-title"><a href="/item-details/">Pastillas Tylenol Ultra</a></h6>
+									<h6 class="item-title"><a href="/restaurant/">Pastillas Tylenol Ultra</a></h6>
 								</div>
 								<div class="dz-meta">
 									<ul>

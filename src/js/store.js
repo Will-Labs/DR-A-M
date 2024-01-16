@@ -1,5 +1,6 @@
 
 import { createStore } from 'framework7/lite';
+import { writable } from 'svelte/store';
 
 const store = createStore({
   state: {
@@ -33,3 +34,7 @@ const store = createStore({
   },
 })
 export default store;
+
+export let foodStore = writable("");
+
+export let dropoffStore = writable("");

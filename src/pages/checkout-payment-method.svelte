@@ -21,7 +21,7 @@
 			<ul class="nav-wizard container">
 				<li>
 					<a class="nav-link" href="/checkout-shipping-address/"> 
-						<span>Shipping Address</span> 
+						<span>Dropoff Location</span> 
 					</a>
 				</li>
 				<li>
@@ -230,6 +230,7 @@
 
 <script>
 	import { Link } from 'framework7-svelte';
+
 </script>
 
 <style>

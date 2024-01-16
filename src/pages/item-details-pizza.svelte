@@ -29,8 +29,8 @@
 			
 			<div class="fixed-content container">
 				<div class="clearfix">
-					<h3 class="ma-0">Pizza Hut Pepperoni XL</h3>
-					<p>Queso, Pan y Pepperoni... Que mas puedes querer?</p>
+					<h3 class="ma-0">Pizza Hut L Queso</h3>
+					<p>Queso, Pan y Salsa... Que mas puedes querer?</p>
 				</div>
 				<div class="item-rating">4.5</div>
 				<div class="dz-range">
@@ -45,7 +45,7 @@
 					</ul>
 				</div>
 				<div class="price-bx">
-					<h2 class="price"><sup>$</sup>599<del>$799</del></h2>
+					<h2 class="price"><sup>$</sup>580<del>$799</del></h2>
 					<div class="stepper stepper-init stepper-round">
 						<div class="stepper-button-minus"></div>
 						<div class="stepper-input-wrap">
@@ -57,7 +57,7 @@
 					
 				<p class="mt-0 mb-30">*)Dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore</p>
 				
-				<a href="/checkout-payment-method/" class="button-large button rounded-xl button-fill">Place order <span>$17.4</span></a>
+				<a href="/checkout-payment-method/" class="button-large button rounded-xl button-fill" on:click={placeOrder}>Place order <span>$17.4</span></a>
 				
 			</div>
 			
@@ -74,6 +74,21 @@ export default (props) => {
 }
 </script> -->
 
+
 <script>
-	import { Link } from 'framework7-svelte';
+    import { Link } from 'framework7-svelte';
+    import { foodStore } from '../js/store.js';
+    import { onDestroy } from 'svelte';
+
+    let unsubscribe = foodStore.subscribe(value => {
+        console.log(value);
+    });
+
+    function placeOrder() {
+        foodStore.set("Pizza Hut L Queso");
+    }
+
+    onDestroy(() => {
+        unsubscribe();
+    });
 </script>
