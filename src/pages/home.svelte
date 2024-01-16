@@ -62,10 +62,11 @@
 					<swiper-slide style="width:auto" class="pl-4">
 						<div class="card-overlay style-1 bg-primary">
 							<div class="dz-media">
-								<img src="../assets/img/products/featured/pic1.png" alt=""/>
+								<a href="/item-details-pizza/">
+									<img src="../assets/img/products/featured/pic1.png" alt=""/></a>
 							</div>
 							<div class="dz-info">
-								<h5 class="item-title title"><a href="/restaurant/">Pizza Hut L Queso</a></h5>
+								<h5 class="item-title title"><a href="/item-details-pizza/">Pizza Hut L Queso</a></h5>
 								<div class="dz-meta">
 									<ul>
 										<li class="price"><sup>$</sup>580<del>$699</del></li>
@@ -77,10 +78,11 @@
 					<swiper-slide style="width:auto">
 						<div class="card-overlay style-1 bg-primary">
 							<div class="dz-media">
-								<img src="../assets/img/products/featured/pic2.png" alt=""/>
+								<a href="/item-details-tea/">
+								<img src="../assets/img/products/featured/pic2.png" alt=""/></a>
 							</div>
 							<div class="dz-info">
-								<h5 class="item-title title"><a href="/restaurant/">Indonesian Tea</a></h5>
+								<h5 class="item-title title"><a href="/item-details-tea/">Indonesian Tea</a></h5>
 								<div class="dz-meta">
 									<ul>
 										<li class="price">$250<del>$299</del></li>
@@ -92,10 +94,11 @@
 					<swiper-slide style="width:auto">
 						<div class="card-overlay style-1 bg-primary">
 							<div class="dz-media">
-								<img src="../assets/img/products/featured/pic3.png" alt=""/>
+								<a href="/item-details-kfc/">
+								<img src="../assets/img/products/featured/pic3.png" alt=""/></a>
 							</div>
 							<div class="dz-info">
-								<h5 class="item-title title"><a href="/restaurant/">KFC Combo Familia</a></h5>
+								<h5 class="item-title title"><a href="/item-details-kfc/">KFC Combo Familia</a></h5>
 								<div class="dz-meta">
 									<ul>
 										<li class="price"><sup>$</sup>349<del>$399</del></li>
@@ -107,10 +110,11 @@
 					<swiper-slide style="width:auto">
 						<div class="card-overlay style-1 bg-primary">
 							<div class="dz-media">
-								<img src="../assets/img/products/featured/pic4.png" alt=""/>
+								<a href="/item-details-pills/">
+								<img src="../assets/img/products/featured/pic4.png" alt=""/></a>
 							</div>
 							<div class="dz-info">
-								<h5 class="item-title title"><a href="/restaurant/">Tylenol Ultra</a></h5>
+								<h5 class="item-title title"><a href="/item-details-pills/">Tylenol Ultra</a></h5>
 								<div class="dz-meta">
 									<ul>
 										<li class="price">$12<del>$15</del></li>
@@ -122,10 +126,11 @@
 					<swiper-slide style="width:auto">
 						<div class="card-overlay style-1 bg-primary">
 							<div class="dz-media">
-								<img src="../assets/img/products/featured/pic5.png" alt=""/>
+								<a href="/item-details-bon/">
+								<img src="../assets/img/products/featured/pic5.png" alt=""/></a>
 							</div>
 							<div class="dz-info">
-								<h5 class="item-title title"><a href="/restaurant/">BON XGrande</a></h5>
+								<h5 class="item-title title"><a href="/item-details-bon/">BON XGrande</a></h5>
 								<div class="dz-meta">
 									<ul>
 										<li class="price">$275<del>$544</del></li>
@@ -264,7 +269,7 @@
 					<li>
 						<div class="item-bx item-list">
 							<div class="dz-media">
-								<a href="/restaurant/"><img src="../assets/img/products/product1a.jpg" alt=""/></a>
+								<a href="/item-details/"><img src="../assets/img/products/product1a.jpg" alt=""/></a>
 								<div class="rating"><i class="fa fa-star"></i> 3.8</div>
 							</div>
 							<div class="dz-info">
@@ -283,7 +288,7 @@
 					<li>
 						<div class="item-bx item-list">
 							<div class="dz-media">
-								<a href="/restaurant/"><img src="../assets/img/products/product2a.jpg" alt=""/></a>
+								<a href="/item-details/"><img src="../assets/img/products/product2a.jpg" alt=""/></a>
 								<div class="rating"><i class="fa fa-star"></i> 4.6</div>
 							</div>
 							<div class="dz-info">

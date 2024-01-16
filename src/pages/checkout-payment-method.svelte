@@ -30,8 +30,8 @@
 					</a>
 				</li>
 				<li>
-					<a class="nav-link" href="/checkout-coupon-apply/">
-						<span>Coupon Apply</span>
+					<a class="nav-link" href="/tracking/">
+						<span>Drone Tracking</span>
 					</a>
 				</li>
 			</ul>
@@ -53,7 +53,7 @@
 										<swiper-slide style="width: auto">
 											<div class="payment-card">
 												<div class="card-media">
-													<img src="../assets/img/card/card1.png" alt="">
+													<img src="../assets/img/card/card1.png" class="rounded-2xl" alt="">
 												</div>
 												<div class="card-info">
 													<div class="clearfix">

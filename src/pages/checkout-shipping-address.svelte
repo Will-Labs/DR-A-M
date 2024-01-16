@@ -31,8 +31,8 @@
 					</a>
 				</li>
 				<li>
-					<a class="nav-link" href="/checkout-coupon-apply/">
-						<span>Coupon Apply</span>
+					<a class="nav-link" href="/tracking/">
+						<span>Drone Tracking</span>
 					</a>
 				</li>
 			</ul>
@@ -107,7 +107,7 @@
 		</div>
 	</div>
 	<div class="toolbar toolbar-bottom footer-button padding container">
-		<a href="/checkout-coupon-apply/" class="button-large button rounded-lg btn-icon button-fill">Next <i class="fas fa-caret-right"></i></a>
+		<a href="/tracking/" class="button-large button rounded-lg btn-icon button-fill">Next <i class="fas fa-caret-right"></i></a>
 	</div>
 </div>
 

@@ -204,16 +204,19 @@ async function completeOrder() {
     </div>
 	<hr>
 
+	<div id="fakebox" class="pt-8"><center>
 	<form on:submit|preventDefault={handleOrderStart}>
-		<input type="text" name="businessLocation" id="businessLocation" bind:value={businessLocation} placeholder="Enter Business Location..." required />
-		<input type="text" name="dropoffLocation" id="dropoffLocation" bind:value={dropoffLocation} placeholder="Enter Dropoff Location..." required />
-		<button type="submit" class="bg-cyan-300 rounded-md width-auto pa-10 text-slate-50">Submit</button>
+		<input type="text" class="p-2 rounded-3xl" style="color:white; background-color:gray; padding:8px; border-radius:10px; margin-bottom:20px;" name="businessLocation" id="businessLocation" 
+		bind:value={businessLocation} placeholder="Enter Business Location..." required />
+		<input type="text" name="dropoffLocation" style="color:white; background-color:gray; padding:8px; border-radius:10px; margin-bottom:20px;" id="dropoffLocation" 
+		bind:value={dropoffLocation} placeholder="Enter Dropoff Location..." required />
+		<button type="submit" class="submit_button mt-8 bg-green-400 w-[50vw] rounded-3xl font-extrabold text-black p-4">Submit</button>
 	</form>
-	<button type="button" on:click={cancelOrder} class="bg-red-600 rounded-md width-auto pa-10 text-slate-50">Cancel Order</button>
+	<button type="button" on:click={cancelOrder} class="bg-red-600 submit_button mt-8 w-[50vw] rounded-3xl font-extrabold text-black p-4">Cancel Order</button>
 
 	{#if orderCancelled}
 		<p class="text-red-600">Order Cancelled</p>
-	{/if}
+	{/if}</center></div>
 
 	<div class="w-[80vw] mx-auto pt-12"><center>
 	<div class="flex items-center p-1 sm:p-4 border border-gray-200 rounded dark:border-gray-700"  style="color:black">
@@ -237,15 +240,15 @@ class="bg-gray-400 border text-white font-extrabold mt-8 text-lg p-2 rounded-lg"
 </select>
 
 	<button type="submit" class="submit_button mt-8 bg-green-400 w-[50vw] rounded-3xl font-extrabold text-black p-4">
-	<!-- <button type="submit" class="submit_button" onclick="document.getElementById('box1').style.display='none'; document.getElementById('box2').style.display='block';"> -->
+	<button type="submit" class="submit_button" onclick="document.getElementById('box1').style.display='none'; document.getElementById('box2').style.display='block';">
 		<img src="../assets/img/order.png" fill="#fff" alt=""> 
 		<span>Send Order</span>
 	</button></center>
 	</div>
 
-	<h1 style="display: {orderStatus ? 'block' : 'none'};" id="status" class="text-center font-extrabold text-2xl mt-8">
-		Order Status: <span class="text-yellow-500">{orderStatus}</span></h1>
-		<p>Order status: {orderStatus}</p>
+	<center><h1 style="display: {orderStatus ? 'block' : 'none'};" id="status" class="text-center font-extrabold text-2xl mt-8">
+		Order Status: <span class="text-yellow-500 text-3xl">{orderStatus}</span></h1>
+		<p>Order status: {orderStatus}</p></center>
 	
 
 	   
@@ -254,5 +257,9 @@ class="bg-gray-400 border text-white font-extrabold mt-8 text-lg p-2 rounded-lg"
 <style>
     #foodbox::placeholder {
         color: white;
+	}
+	#fakebox::placeholder {
+        color: white;
+		font-weight:900;
 	}
 </style>

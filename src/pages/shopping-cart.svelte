@@ -101,8 +101,8 @@
 	class="text-align-center text-3xl w-[60vw]" style="color:white; background-color:#a79c91;border-radius:10px;"/>
 	<div class="toolbar toolbar-bottom container footer-button padding">
 
-		<select id="dropOffLocation" name="dropOffLocation" placeholder="Select Tag" required 
-class="bg-gray-400 text-white font-extrabold text-lg p-2 mb-4 rounded-lg">
+	<select id="dropOffLocation" name="dropOffLocation" placeholder="Select Tag" required 
+class="text-white text-align-center text-lg p-2 mb-4 w-[60vw]" style="background-color:#a79c91;border-radius:10px;">
 <option selected>Select Food Tag</option>
 <option value="1">Featured</option>
 <option value="2">Popular</option>
@@ -118,7 +118,37 @@ class="bg-gray-400 text-white font-extrabold text-lg p-2 mb-4 rounded-lg">
 	</div>
 
 
-	
+	<!-- Upload Food Drafting Function
+
+const uploadFood = async () => {
+	const user_data = await get_user($user.$id);
+	const file = document.getElementById('uploader').files[0];
+	const fileData = await storage.createFile('65869debdfc84bdec4a1', ID.unique(), file);
+	const food_image_url = await storage.getFilePreview('65869debdfc84bdec4a1', fileData.$id);
+	await databases.updateDocument(IDEAS_DATABASE_ID, IDEAS_COLLECTION_ID, user_data.documents[0].$id, 
+		{   $user.$id, food_image_url: food_image_url.toString(), food_title: formData.get('FoodTitle'), 
+			food_description: formData.get('FoodDesc'), food_price: formData.get('FoodPrice'), food_tag: formData.get('FoodTag')		});
+	e.target.reset();
+	invalidateAll();
+	fetchUserData();
+	f7router.navigate('/shopping-cart/');		}
+
+
+
+
+			// IF need more help, this function is similar too
+    const change_balance = async (e) => {
+        e.preventDefault();
+        const user_data = await get_user($user.$id);
+        const formData = new FormData(e.target);
+        const balance_input = formData.get('balance');
+        if(user_data.total != 0){
+            await user_update_balance(user_data.documents[0].$id, $user.$id, balance_input);
+        }else{
+        await balance_regist($user.$id, balance_input);  }
+	    fetchUserData();
+        goto('/crud');     }
+	-->
 
 	
 </Page>

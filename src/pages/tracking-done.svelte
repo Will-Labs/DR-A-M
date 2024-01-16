@@ -6,7 +6,7 @@
 					<path d="M0.439312 13.0606L5.75391 18.3752C6.04683 18.6682 6.43069 18.8146 6.81459 18.8146C7.1985 18.8146 7.58236 18.6682 7.87528 18.3752C8.46103 17.7894 8.46103 16.8397 7.87528 16.2539L5.12133 13.5H22.5C23.3284 13.5 24 12.8284 24 12C24 11.1716 23.3284 10.5 22.5 10.5H5.12133L7.87528 7.7461C8.46103 7.1603 8.46103 6.21057 7.87528 5.62477C7.28944 5.03898 6.33975 5.03898 5.75391 5.62477L0.439312 10.9394C-0.146437 11.5251 -0.146437 12.4749 0.439312 13.0606Z" fill="black"/>
 				</svg>
 			</Link>
-			<div class="title">Tracking Orders</div>
+			<div class="title">Enjoy!</div>
 			<div class="right">
                 <a href="#" class="link panel-open" data-panel="left">
 					<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -20,13 +20,13 @@
 	<div class="page-content pt-0">
 		
 		<!-- Map -->
-		<iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d17548787.66139891!2d79.32638741782908!3d25.447855407763893!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sin!4v1619499827514!5m2!1sen!2sin" allowfullscreen="" loading="lazy"></iframe>
+		<img src="../../assets/img/check.jpg" class="w-screen h-screen" alt="done"/>
 		
-		<div class="bottom-wraper">
+		<div class="bottom-wraper mb-12">
 			<div class="container track-content">
 				<div class="map-dir">
-					<p class="ma-0">Estimated Time</p>
-					<h4 class="ma-0">5-10 min</h4>
+					<p class="ma-0">Delivery Time</p>
+					<h4 class="ma-0">7.5 min</h4>
 				</div>
 			</div>
 			<div class="delivery-man container bg-primary">
