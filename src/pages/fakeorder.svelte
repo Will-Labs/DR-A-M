@@ -3,12 +3,6 @@
 //	import { user } from '$js/user';
     import axios from 'axios';
     import { v4 as uuidv4 } from 'uuid';
-//    import { ID, Query } from 'appwrite';
-//    import { goto } from '$app/navigation';
-//    import { writable } from 'svelte/store';
-//	import { databases } from '$js/appwrite';
-//	import { invalidateAll } from '$app/navigation';
-//    import { userOrder_regist, userOrder_update  } from '$lib/users';
 
 const orderUrl = 'http://localhost:5165';
 let businessLocation = '';
@@ -21,7 +15,7 @@ let intervalId;
 
 const createFakeOrder = async () => {
   const fakeOrder = {
-    orderID: uuidv4(), //Generate a GUID for the order
+    id: uuidv4(), //Generate a GUID for the order
     businessLocation: businessLocation,
     dropoffLocation: dropoffLocation
   };
@@ -30,7 +24,7 @@ const createFakeOrder = async () => {
   try {
     const response = await axios.post(`${orderUrl}/order`, fakeOrder);
 
-    if (response.status === 200) {
+    if (response.status === 200 || response.status === 201) {
         console.log('Order created successfully:', response.data);
     } else {
         console.log('Error creating order:', response.status, response.data);
@@ -45,10 +39,9 @@ async function getOrderStatus() {
     const response = await axios.get(`${orderUrl}/order/orderStatus`);
 
     if (response.status === 200) {
-        orderStatus = response.data; //Update the order status
+        orderStatus = response.data;
         console.log('Order status:', response.data);
 
-        //If the order is completed, stop calling getOrderStatus
         if (response.data === 'Order Completed') {
             await completeOrder();
         }
@@ -77,8 +70,6 @@ async function handleOrderStart() {
 async function cancelOrder() {
   try {
     const response = await axios.post(`${orderUrl}/order/cancelOrder`);
-    
-    //Stop Calling getOrderStatus
     clearInterval(intervalId);
 	orderStatus = null;
 
@@ -96,8 +87,7 @@ async function cancelOrder() {
 async function completeOrder() {
   try {
     const response = await axios.post(`${orderUrl}/order/completeOrder`);
-
-    clearInterval(intervalId);
+	clearInterval(intervalId);
 
     if (response.status === 200) {
         console.log('Order completed successfully:', response.data);
