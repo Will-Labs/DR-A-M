@@ -40,3 +40,15 @@ export let foodStore = writable("");
 export let dropoffStore = writable("");
 
 export const currentMenuItem = writable('My Order');
+
+export const foodInfo = writable({
+  Food_Image: "",
+  Food_Title: "",
+  Food_Description: "",
+  Food_Price: "", 
+  Food_Tag: ""
+});
+
+export const updateFoodInfo = (newFoodInfoObj) => {
+  foodInfo.set(newFoodInfoObj);
+}

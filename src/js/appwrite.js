@@ -1,7 +1,7 @@
-import { Client as Appwrite, Databases, Account, Storage } from "appwrite";
+import { Client, Databases, Account, Storage } from "appwrite";
 import { APPWRITE_ENDPOINT, APPWRITE_PROJECT, APPWRITE_DATABASE_ID } from "./constants";
 
-const client = new Appwrite();
+const client = new Client();
 client.setEndpoint(APPWRITE_ENDPOINT)
       .setProject(APPWRITE_PROJECT);
 

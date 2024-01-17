@@ -6,11 +6,11 @@
     APPWRITE_FOOD_COLLECTION_ID,
   } from "../js/constants";
   import { create } from "../js/lotteries";
+  import { foodInfo, updateFoodInfo } from "../js/store";
 
   let foodImg = "";
   let fileinput;
 
-  
   const onFileSelected = (e) => {
     let image = e.target.files[0];
     let reader = new FileReader();
@@ -19,7 +19,7 @@
       foodImg = e.target.result;
     };
   };
-  
+
   const uploadFoodItem = async () => {
     let foodTitle = "";
     let foodDescription = "";
@@ -32,15 +32,15 @@
       console.error("No file selected");
       return;
     }
-    
+
     try {
       foodTitle = document.getElementById("foodbox1").value;
       foodDescription = document.getElementById("foodbox2").value;
       foodPrice = document.getElementById("foodbox3").value;
       foodTag = document.getElementById("dropOffLocation").value;
 
-      // Create a new document with food information
-      await create(APPWRITE_FOOD_COLLECTION_ID, {
+      
+      updateFoodInfo({
         Food_Image: foodImg.toString(),
         Food_Title: foodTitle,
         Food_Description: foodDescription,
@@ -49,7 +49,11 @@
       });
       
       debugger;
-      // Reset the form and update UI as needed
+      // Create a new document with food information
+      await create(APPWRITE_FOOD_COLLECTION_ID, foodInfo);
+      
+      debugger;
+      // Reset the form and update UI
       document.getElementById("foodInfoForm").reset();
       console.log("Food item uploaded successfully");
     } catch (error) {
