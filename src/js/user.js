@@ -53,6 +53,7 @@ const createUser = () => {
 		login,
 		logout,
 		init,
-		googleLogin	};		};
+		googleLogin	};		
+	};
 
 export const user = createUser();

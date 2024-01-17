@@ -4,7 +4,7 @@
     import axios from 'axios';
     import { v4 as uuidv4 } from 'uuid';
 
-const orderUrl = 'http://localhost:5165';
+const orderUrl = 'http://localhost:5165/order';
 let title = 'Fake Order';
 let businessLocation = '';
 let dropoffLocation = '';
@@ -23,7 +23,7 @@ const createFakeOrder = async () => {
   console.log(fakeOrder);
 
   try {
-    const response = await axios.post(`${orderUrl}/order`, fakeOrder);
+    const response = await axios.post(`${orderUrl}/createOrder`, fakeOrder);
 
     if (response.status === 200 || response.status === 201) {
         console.log('Order created successfully:', response.data);
@@ -35,9 +35,25 @@ const createFakeOrder = async () => {
   }
 }
 
+async function getOrders() {
+  try {
+    const response = await axios.get(`${orderUrl}`);
+
+    if (response.status === 200) {
+        orderStatus = response.data;
+        console.log('All orders:', response.data);
+    } else {
+        console.log('Error getting order status:', response.status, response.data);
+    }
+  } catch (error) {
+        console.error('Error getting order status:', error);
+  }
+}
+
+
 async function getOrderStatus() {
   try {
-    const response = await axios.get(`${orderUrl}/order/orderStatus`);
+    const response = await axios.get(`${orderUrl}/orderStatus`);
 
     if (response.status === 200) {
         orderStatus = response.data;
@@ -70,7 +86,7 @@ async function handleOrderStart() {
 
 async function cancelOrder() {
   try {
-    const response = await axios.post(`${orderUrl}/order/cancelOrder`);
+    const response = await axios.post(`${orderUrl}/cancelOrder`);
     clearInterval(intervalId);
 	orderStatus = null;
 
@@ -87,7 +103,7 @@ async function cancelOrder() {
 
 async function completeOrder() {
   try {
-    const response = await axios.post(`${orderUrl}/order/completeOrder`);
+    const response = await axios.post(`${orderUrl}/completeOrder`);
 	clearInterval(intervalId);
 
     if (response.status === 200) {
