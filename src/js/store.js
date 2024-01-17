@@ -7,6 +7,7 @@ export const dropoffLocationStore = writable('');
 export const orderStatusStore = writable('');
 export let foodStore = writable("");
 export let dropoffStore = writable("");
+export const currentMenuItem = writable('My Order');
 
 
 
