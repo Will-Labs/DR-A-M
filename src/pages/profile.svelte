@@ -130,7 +130,7 @@
 				</swiper-container>
 			
 				<div style="width: 80%; margin: auto; margin-top: 50px">
-					<Button large round fill>Upgrade to Store Owner</Button>
+					<Button large round fill onClick={upgradeUserRole}>Upgrade to Store Owner</Button>
 				</div>
 
 			</div>
@@ -142,4 +142,9 @@
 <script>
 	import { Link, Button } from 'framework7-svelte';
 	import { user } from '../js/user';
+	import { currentMenuItem } from '../js/store';
+
+	const upgradeUserRole = () => {
+		currentMenuItem.set('My Store');
+	}
 </script>

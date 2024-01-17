@@ -38,3 +38,5 @@ export default store;
 export let foodStore = writable("");
 
 export let dropoffStore = writable("");
+
+export const currentMenuItem = writable('My Order');
