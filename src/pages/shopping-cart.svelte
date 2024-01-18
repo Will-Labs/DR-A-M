@@ -1,14 +1,11 @@
 <script>
   import { Page, Link } from "framework7-svelte";
-  // import * as Appwrite from "appwrite";
-  import {
-    APPWRITE_FOOD_STORAGE_ID,
-    APPWRITE_FOOD_COLLECTION_ID,
-  } from "../js/constants";
+  import { APPWRITE_FOOD_COLLECTION_ID } from "../js/constants";
+  import { Client, Databases, ID, Query } from "appwrite";
+  import { APPWRITE_ENDPOINT, APPWRITE_PROJECT } from "../js/constants";
   import { create } from "../js/lotteries";
-  import { foodInfo, updateFoodInfo } from "../js/store";
 
-  let foodImg = "";
+  let Food_Image = "";
   let fileinput;
 
   const onFileSelected = (e) => {
@@ -16,49 +13,33 @@
     let reader = new FileReader();
     reader.readAsDataURL(image);
     reader.onload = (e) => {
-      foodImg = e.target.result;
+      Food_Image = e.target.result;
     };
   };
 
-  const uploadFoodItem = async () => {
-    let foodTitle = "";
-    let foodDescription = "";
-    let foodPrice = "";
-    let foodTag = "";
+  const uploadFoodItem = async (e) => {
+    e.preventDefault();
+    let Food_Title = "";
+    let Food_Description = "";
+    let Food_Price = "";
+    let Food_Tag = "";
 
-    // Get file data
-    const file = fileinput.files[0];
-    if (!file) {
-      console.error("No file selected");
-      return;
-    }
+    const formData = new FormData(e.target);
 
-    try {
-      foodTitle = document.getElementById("foodbox1").value;
-      foodDescription = document.getElementById("foodbox2").value;
-      foodPrice = document.getElementById("foodbox3").value;
-      foodTag = document.getElementById("dropOffLocation").value;
+    console.log(Food_Image);
+    Food_Title = formData.get("Food_Title");
+    Food_Description = formData.get("Food_Description");
+    Food_Price = formData.get("Food_Price");
+    Food_Tag = formData.get("Food_Tag");
 
-      
-      updateFoodInfo({
-        Food_Image: foodImg.toString(),
-        Food_Title: foodTitle,
-        Food_Description: foodDescription,
-        Food_Price: foodPrice,
-        Food_Tag: foodTag,
-      });
-      
-      debugger;
-      // Create a new document with food information
-      await create(APPWRITE_FOOD_COLLECTION_ID, foodInfo);
-      
-      debugger;
-      // Reset the form and update UI
-      document.getElementById("foodInfoForm").reset();
-      console.log("Food item uploaded successfully");
-    } catch (error) {
-      console.error("Error uploading food item:", error);
-    }
+    const data = {
+      Food_Image,
+      Food_Title,
+      Food_Description,
+      Food_Price,
+      Food_Tag,
+    };
+    await create(APPWRITE_FOOD_COLLECTION_ID, data);
   };
 </script>
 
@@ -201,12 +182,13 @@
 
     <br /><br />
     <center>
-      <form id="foodInfoForm">
-        {#if foodImg}
+      <form id="foodInfoForm" on:submit={uploadFoodItem}>
+        {#if Food_Image}
           <img
-            id="id_foodImg"
-            class="foodImg w-[20vw] h-[20vw]"
-            src={foodImg}
+            id="id_Food_Image"
+            class="Food_Image w-[20vw] h-[20vw]"
+            name="Food_Image"
+            src={Food_Image}
             alt="food image"
             on:click={() => {
               fileinput.click();
@@ -214,9 +196,10 @@
           />
         {:else}
           <img
-            id="id_foodImg"
+            id="id_Food_Image"
+            name="Food_Image"
             src="https://cdn4.iconfinder.com/data/icons/small-n-flat/24/user-alt-512.png"
-            class="foodImg w-[20vw] h-[20vw]"
+            class="Food_Image w-[20vw] h-[20vw]"
             alt=""
             on:click={() => {
               fileinput.click();
@@ -228,6 +211,7 @@
           style="display:none"
           type="file"
           accept=".jpg, .jpeg, .png"
+          required
           on:change={(e) => onFileSelected(e)}
           bind:this={fileinput}
         />
@@ -236,6 +220,8 @@
           type="text"
           placeholder="Enter Food Title..."
           id="foodbox1"
+          name="Food_Title"
+          required
           class="text-align-center text-3xl w-[60vw]"
           style="color:white; background-color:#a79c91;border-radius:10px;"
         />
@@ -244,20 +230,25 @@
           type="text"
           placeholder="Enter Food Description..."
           id="foodbox2"
+          name="Food_Description"
+          required
           class="text-align-center text-3xl w-[60vw]"
           style="color:white; background-color:#a79c91;border-radius:10px;"
         />
-        <br /><input
+        <br />
+        <input
           type="number"
           placeholder="Enter Food Price..."
           id="foodbox3"
+          name="Food_Price"
+          required
           class="text-align-center text-3xl w-[60vw]"
           style="color:white; background-color:#a79c91;border-radius:10px;"
         />
         <br />
         <select
           id="dropOffLocation"
-          name="dropOffLocation"
+          name="Food_Tag"
           placeholder="Select Tag"
           required
           class="text-white text-align-center pb-5 pt-5 w-[60vw]"
@@ -274,13 +265,9 @@
           <option value="8">Favorites</option>
         </select> <br />
 
-        <!-- <a
-          href="/order-details/" -->
         <button
           class="button-large button button-fill rounded-xl w-[40vw]"
-          on:click={() => {
-            uploadFoodItem();
-          }}
+          type="submit"
         >
           UPLOAD FOOD ITEM
         </button>
@@ -296,8 +283,8 @@ const uploadFood = async () => {
 	const fileData = await storage.createFile('65869debdfc84bdec4a1', ID.unique(), file);
 	const food_image_url = await storage.getFilePreview('65869debdfc84bdec4a1', fileData.$id);
 	await databases.updateDocument(IDEAS_DATABASE_ID, IDEAS_COLLECTION_ID, user_data.documents[0].$id, 
-		{   $user.$id, food_image_url: food_image_url.toString(), food_title: formData.get('FoodTitle'), 
-			food_description: formData.get('FoodDesc'), food_price: formData.get('FoodPrice'), food_tag: formData.get('FoodTag')		});
+		{   $user.$id, food_image_url: food_image_url.toString(), food_title: formData.get('Food_Title'), 
+			food_description: formData.get('FoodDesc'), food_price: formData.get('Food_Price'), food_tag: formData.get('Food_Tag')		});
 	e.target.reset();
 	invalidateAll();
 	fetchUserData();
@@ -331,7 +318,7 @@ const uploadFood = async () => {
   #foodbox3::placeholder {
     color: white;
   }
-  .foodImg {
+  .Food_Image {
     display: flex;
     cursor: pointer;
   }

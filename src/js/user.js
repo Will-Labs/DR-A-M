@@ -25,9 +25,9 @@ const createUser = () => {
   //     await account.create(ID.unique(), email, password);
   //     await login(email, password);
   //   }
-  async function register(email, password, userRole=USERROLE_CUSTOMER) {
+  async function register(email, password, userRole = USERROLE_CUSTOMER) {
     if (!isBrowser) return;
-	const userId = ID.unique();
+    const userId = ID.unique();
     await account.create(userId, email, password, userRole);
     await login(email, password);
   }
