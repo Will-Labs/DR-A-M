@@ -78,6 +78,7 @@
 						<div class="info">
 							<h5 class="title">Dropoff - Villa Mella #4</h5>
 							<p>Sent at 08:23 AM</p>
+							<p>Order Status: {orderStatus}</p>
 						</div>
 					</li>
 				</ul>
@@ -90,39 +91,50 @@
 <script>
 	import { orders } from './../js/fakeOrder.js';
     import { Link } from 'framework7-svelte';
-    import { foodStore, dropoffStore } from '../js/store.js';
+    import { foodStore, dropoffStore, businessLocationStore, dropoffLocationStore } from '../js/store.js';
     import { onDestroy, onMount } from 'svelte';
 
 	let id;
     let foodValue;
     let dropoffValue;
+	let businessLocation;
+	let dropoffLocation;
 	let orderStatus;
 	let AllOrders = [];
+	let order;
 
-    let unsubscribeFoodStore = foodStore.subscribe(value => {
-        foodValue = value;
-    });
+    // let unsubscribeFoodStore = foodStore.subscribe(value => {
+    //     foodValue = value;
+    // });
 
-    let unsubscribeDropoffStore = dropoffStore.subscribe(value => {
-        dropoffValue = value;
-    });
+    // let unsubscribeDropoffStore = dropoffStore.subscribe(value => {
+    //     dropoffValue = value;
+    // });
+
+	let unsubscribeBusinessLocationStore = businessLocationStore.subscribe(value => {
+		businessLocation = value;
+	});
+
+	let unsubscribeDropoffLocationStore = dropoffLocationStore.subscribe(value => {
+		dropoffLocation = value;
+	});
 
     let logged = false;
-    $: if (foodValue && dropoffValue && !logged) {
-        console.log('foodStore:', foodValue);
-        console.log('dropoffStore:', dropoffValue);
-		//orders.createFakeOrder(id, foodValue, dropoffValue);
-        logged = true;
+    $: if (businessLocation && dropoffLocation) {
+		console.log('businessLocation:', businessLocation);
+		console.log('dropoffLocation:', dropoffLocation);
+		order = orders.createFakeOrder(businessLocation, dropoffLocation);
+		console.log('order:', order);
     }
 
     onMount(async () => {
         console.clear();
-		AllOrders = await orders.getAllOrders();
+		//AllOrders = await orders.getAllOrders();
 		orderStatus = await orders.getOrderStatus();
     });
 
     onDestroy(() => {
-        unsubscribeFoodStore();
-        unsubscribeDropoffStore();
+		unsubscribeBusinessLocationStore();
+		unsubscribeDropoffLocationStore();
     });
 </script>

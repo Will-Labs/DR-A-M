@@ -105,17 +105,17 @@
 
 <script>
 	import { Link } from 'framework7-svelte';
-	import { dropoffStore } from '../js/store.js';
+	import { dropoffLocationStore } from '../js/store.js';
 	import { onMount } from 'svelte';
 
 	let dropoffLocation;
 
 	onMount(() => {
-		dropoffStore.set(null); // or set to another default value
+		dropoffLocationStore.set(null); // or set to another default value
 	});
 
 	function setDropoffStore() {
-		dropoffStore.set(dropoffLocation);
+		dropoffLocationStore.set(dropoffLocation);
 	}
 </script>
 

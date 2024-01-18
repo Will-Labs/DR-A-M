@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { v4 as uuidv4 } from "uuid";
 import { writable } from 'svelte/store';
 
 const orderUrl = 'http://localhost:5165/order';
@@ -30,7 +31,7 @@ const manageOrders = () => {
       }
     }
 
-    const createFakeOrder = async () => {
+    const createFakeOrder = async (businessLocation, dropoffLocation) => {
         const fakeOrder = {
           id: uuidv4(), //Generate a GUID for the order
           businessLocation: businessLocation,
@@ -39,7 +40,7 @@ const manageOrders = () => {
         console.log(fakeOrder);
       
         try {
-          const response = await axios.post(`${orderUrl}/createOrder`, fakeOrder);
+          const response = await axios.post(`${orderUrl}/`, fakeOrder);
       
           if (response.status === 200 || response.status === 201) {
               console.log('Order created successfully:', response.data);

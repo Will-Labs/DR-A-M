@@ -35,22 +35,6 @@ let intervalId;
   }
 }
 
-async function getOrders() {
-  try {
-    const response = await axios.get(`${orderUrl}`);
-
-    if (response.status === 200) {
-        orderStatus = response.data;
-        console.log('All orders:', response.data);
-    } else {
-        console.log('Error getting order status:', response.status, response.data);
-    }
-  } catch (error) {
-        console.error('Error getting order status:', error);
-  }
-}
-
-
 async function getOrderStatus() {
   try {
     const response = await axios.get(`${orderUrl}/orderStatus`);
