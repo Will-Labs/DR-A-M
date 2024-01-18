@@ -88,12 +88,16 @@
 </div>
 
 <script>
+	import { orders } from './../js/fakeOrder.js';
     import { Link } from 'framework7-svelte';
     import { foodStore, dropoffStore } from '../js/store.js';
     import { onDestroy, onMount } from 'svelte';
 
+	let id;
     let foodValue;
     let dropoffValue;
+	let orderStatus;
+	let AllOrders = [];
 
     let unsubscribeFoodStore = foodStore.subscribe(value => {
         foodValue = value;
@@ -107,11 +111,14 @@
     $: if (foodValue && dropoffValue && !logged) {
         console.log('foodStore:', foodValue);
         console.log('dropoffStore:', dropoffValue);
+		//orders.createFakeOrder(id, foodValue, dropoffValue);
         logged = true;
     }
 
-    onMount(() => {
+    onMount(async () => {
         console.clear();
+		AllOrders = await orders.getAllOrders();
+		orderStatus = await orders.getOrderStatus();
     });
 
     onDestroy(() => {
