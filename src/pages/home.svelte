@@ -63,10 +63,12 @@
 						<div class="card-overlay style-1 bg-primary">
 							<div class="dz-media">
 								<a href="/item-details-pizza/">
-									<img src="../assets/img/products/featured/pic1.png" alt=""/></a>
+									<!-- <img src="../assets/img/products/featured/pic1.png" alt=""/> -->
+									<img src={foodItems[0].Food_Image} alt=""/>
+								</a>
 							</div>
 							<div class="dz-info">
-								<h5 class="item-title title"><a href="/item-details-pizza/">Pizza Hut L Queso</a></h5>
+								<h5 class="item-title title"><a href="/item-details-pizza/">{foodItems[0].Food_Title}</a></h5>
 								<div class="dz-meta">
 									<ul>
 										<li class="price">$580<del>$699</del></li>
@@ -315,4 +317,8 @@
 <script>
 	import { Page } from 'framework7-svelte';
 	import { user } from '../js/user.js';
+	import { getList } from '../js/lotteries.js';
+	import { APPWRITE_FOOD_COLLECTION_ID } from '../js/constants.js';
+
+	const foodItems = getList(APPWRITE_FOOD_COLLECTION_ID);
 </script>
