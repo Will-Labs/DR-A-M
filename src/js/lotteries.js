@@ -6,7 +6,6 @@ import {
 import { Client, Databases, ID } from "appwrite";
 
 const client = new Client();
-// const client =  window.Appwrite();
 client.setEndpoint(APPWRITE_ENDPOINT).setProject(APPWRITE_PROJECT);
 const databases = new Databases(client);
 
@@ -19,25 +18,22 @@ export const create = async (collectionId, data) => {
       data
     );
   } catch (error) {
-    console.error("lotteries.js create error:", error);
+    console.error(
+      "lotteries.js create error while creating document in DB:",
+      error
+    );
   }
 };
 
-//   export const getList = databases.listDocuments(
-//     APPWRITE_DATABASE_ID,
-//     APPWRITE_FOOD_COLLECTION_ID,
-//     [Query.orderDesc("$createdAt")]
-//   );
-
-export const getList = (collection_id) => {
-  const promise = databases.listDocuments(APPWRITE_DATABASE_ID, collection_id, [
-    "createdAt"
-  ]);
-  return promise.then (function (response) {
-    return response; // Success
-  }, function (error) {
-    console.log(error); // Failure
-  });
+export const getDocuments = async (collectionId) => {
+  try {
+    return await databases.listDocuments(APPWRITE_DATABASE_ID, collectionId);
+  } catch (error) {
+    console.error(
+      "Lotteries.js create error while getting documents from DB: ",
+      error
+    );
+  }
 };
 
 export const deleteList = (database_id, collection_id, data) =>

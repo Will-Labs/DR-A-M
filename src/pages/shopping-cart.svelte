@@ -1,9 +1,17 @@
 <script>
   import { Page, Link } from "framework7-svelte";
-  import { APPWRITE_FOOD_COLLECTION_ID } from "../js/constants";
-  import { Client, Databases, ID, Query } from "appwrite";
-  import { APPWRITE_ENDPOINT, APPWRITE_PROJECT } from "../js/constants";
+  import { onMount } from "svelte";
+  import {
+    APPWRITE_FOOD_COLLECTION_ID,
+    FOOD_TAG_BEBIDAS,
+    FOOD_TAG_FAVOURITES,
+  } from "../js/constants.js";
   import { create } from "../js/lotteries";
+  let foodItems = [];
+
+  onMount(async () => {
+    foodItems = (await getDocuments(APPWRITE_FOOD_COLLECTION_ID)).documents;
+  });
 
   let Food_Image = "";
   let fileinput;
@@ -62,7 +70,7 @@
       </Link>
       <div class="title">Orders</div>
       <div class="right">
-        <a href="#" class="link panel-open" data-panel="left">
+        <a href="/" class="link panel-open" data-panel="left">
           <svg
             width="24"
             height="24"
@@ -132,48 +140,51 @@
         <div id="tab-1" class="tab tab-active">
           <div class="list cart-list search-list searchbar-found item-list">
             <ul>
-              <li class="swipeout cart-item">
-                <div class="item-content swipeout-content">
-                  <div class="item-inner">
-                    <div class="item-media">
-                      <a href="/item-details/"
-                        ><img src="../assets/img/menus/picpops.jpg" alt="" /></a
-                      >
-                    </div>
-                    <div class="item-info">
-                      <div class="item-head">
-                        <h6 class="item-title">
-                          <a href="/item-details/">Sweet Lemon Indonesian Tea</a
+              {#each foodItems as foodItem}
+                {#if foodItem.Food_Tag == FOOD_TAG_FAVOURITES}
+                  <li class="swipeout cart-item">
+                    <div class="item-content swipeout-content">
+                      <div class="item-inner">
+                        <div class="item-media">
+                          <a href="/item-details/"
+                            ><img src={foodItem.Food_Image} alt="" /></a
                           >
-                        </h6>
-                      </div>
-                      <div class="item-foot">
-                        <ul>
-                          <li class="item-price">$5.8</li>
-                          <li class="">2x</li>
-                          <li class="text-primary item-total">$11.6</li>
-                        </ul>
+                        </div>
+                        <div class="item-info">
+                          <div class="item-head">
+                            <h6 class="item-title">
+                              <a href="/item-details/">{foodItem.Food_Title}</a>
+                            </h6>
+                          </div>
+                          <div class="item-foot">
+                            <ul>
+                              <li class="item-price">${foodItem.Food_Price}</li>
+                              <li class="">2x</li>
+                              <li class="text-primary item-total">$11.6</li>
+                            </ul>
+                          </div>
+                        </div>
                       </div>
                     </div>
-                  </div>
-                </div>
-                <div class="swipeout-actions-right">
-                  <a href="#" class="swipeout-delete">
-                    <svg
-                      width="22"
-                      height="23"
-                      viewBox="0 0 22 23"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="M21.707 6.40708L15.707 0.407082C15.5195 0.219611 15.2652 0.114296 15 0.114296C14.7348 0.114296 14.4805 0.219611 14.293 0.407082L0.293 14.4071C0.105451 14.5946 5.66374e-05 14.8489 0 15.1141V21.1141C0 21.3793 0.105357 21.6336 0.292893 21.8212C0.48043 22.0087 0.734784 22.1141 1 22.1141H7C7.26519 22.114 7.51951 22.0086 7.707 21.8211L21.707 7.82108C21.8945 7.63355 21.9998 7.37924 21.9998 7.11408C21.9998 6.84891 21.8945 6.59461 21.707 6.40708ZM6.586 20.1141H2V15.5281L12 5.52808L16.586 10.1141L6.586 20.1141ZM18 8.70008L13.414 4.11408L15 2.52808L19.586 7.11408L18 8.70008Z"
-                        fill="white"
-                      />
-                    </svg>
-                  </a>
-                </div>
-              </li>
+                    <div class="swipeout-actions-right">
+                      <a href="/" class="swipeout-delete">
+                        <svg
+                          width="22"
+                          height="23"
+                          viewBox="0 0 22 23"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M21.707 6.40708L15.707 0.407082C15.5195 0.219611 15.2652 0.114296 15 0.114296C14.7348 0.114296 14.4805 0.219611 14.293 0.407082L0.293 14.4071C0.105451 14.5946 5.66374e-05 14.8489 0 15.1141V21.1141C0 21.3793 0.105357 21.6336 0.292893 21.8212C0.48043 22.0087 0.734784 22.1141 1 22.1141H7C7.26519 22.114 7.51951 22.0086 7.707 21.8211L21.707 7.82108C21.8945 7.63355 21.9998 7.37924 21.9998 7.11408C21.9998 6.84891 21.8945 6.59461 21.707 6.40708ZM6.586 20.1141H2V15.5281L12 5.52808L16.586 10.1141L6.586 20.1141ZM18 8.70008L13.414 4.11408L15 2.52808L19.586 7.11408L18 8.70008Z"
+                            fill="white"
+                          />
+                        </svg>
+                      </a>
+                    </div>
+                  </li>
+                {/if}
+              {/each}
             </ul>
           </div>
         </div>
