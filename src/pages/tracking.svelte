@@ -111,22 +111,16 @@
     $: if (foodValue && dropoffValue && !logged) {
         console.log('foodStore:', foodValue);
         console.log('dropoffStore:', dropoffValue);
-<<<<<<< HEAD
         logged = true;	}
 
     onMount(() => {
         console.clear();	});
-=======
-		//orders.createFakeOrder(id, foodValue, dropoffValue);
-        logged = true;
-    }
 
     onMount(async () => {
         console.clear();
 		AllOrders = await orders.getAllOrders();
 		orderStatus = await orders.getOrderStatus();
     });
->>>>>>> 8820a501e45fdc447782068375bfc15875bf753d
 
     onDestroy(() => {
         unsubscribeFoodStore();
