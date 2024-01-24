@@ -1,53 +1,93 @@
 <script>
-  import { Page, Link } from "framework7-svelte";
+  import { f7, Page, Link } from "framework7-svelte";
   import { onMount } from "svelte";
   import {
     APPWRITE_FOOD_COLLECTION_ID,
-    FOOD_TAG_BEBIDAS,
     FOOD_TAG_FAVOURITES,
   } from "../js/constants.js";
-  import { create } from "../js/lotteries";
+  import { create, getDocuments } from "../js/lotteries";
   let foodItems = [];
 
+  // get all food items when the page is loaded.
   onMount(async () => {
     foodItems = (await getDocuments(APPWRITE_FOOD_COLLECTION_ID)).documents;
   });
 
-  let Food_Image = "";
+  let foodImage = "";
   let fileinput;
 
+  // Upload and get the url of food image in file upload tag
   const onFileSelected = (e) => {
     let image = e.target.files[0];
     let reader = new FileReader();
     reader.readAsDataURL(image);
     reader.onload = (e) => {
-      Food_Image = e.target.result;
+      foodImage = e.target.result;
     };
   };
 
+  // Upload food items to AppWrite
   const uploadFoodItem = async (e) => {
     e.preventDefault();
-    let Food_Title = "";
-    let Food_Description = "";
-    let Food_Price = "";
-    let Food_Tag = "";
+    let foodTitle = "";
+    let foodDescription = "";
+    let foodPrice = 0;
+    let foodTag = "";
+    let foodNum = 0; //not using now
+    let foodCalories = ""; //not using now
+    let foodStorageDate = 1; //not using now
+    let foodProductionPlace = ""; //not using now
 
+    // get values from form tags
     const formData = new FormData(e.target);
 
-    console.log(Food_Image);
-    Food_Title = formData.get("Food_Title");
-    Food_Description = formData.get("Food_Description");
-    Food_Price = formData.get("Food_Price");
-    Food_Tag = formData.get("Food_Tag");
+    foodTitle = formData.get("food_title");
+    foodDescription = formData.get("food_description");
+    foodPrice = formData.get("food_price");
+    foodTag = formData.get("food_tag");
 
     const data = {
-      Food_Image,
-      Food_Title,
-      Food_Description,
-      Food_Price,
-      Food_Tag,
+      Food_Image: foodImage,
+      Food_Title: foodTitle,
+      Food_Description: foodDescription,
+      Food_Price: foodPrice,
+      Food_Price_Old: foodPrice, //privious price of food is equals to the current price when it's uploaded at first
+      Food_Tag: foodTag,
     };
-    await create(APPWRITE_FOOD_COLLECTION_ID, data);
+
+    try {
+      await create(APPWRITE_FOOD_COLLECTION_ID, data);
+
+      // Notification
+      let uploadNotification = f7.notification.create({
+        icon: '<svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-alert-circle" width="28" height="28" viewBox="0 0 24 24" stroke-width="1.5" stroke="#00b341" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M3 12a9 9 0 1 0 18 0a9 9 0 0 0 -18 0" /><path d="M12 8v4" /><path d="M12 16h.01" /></svg>',
+        title: "Uploaded successfully!",
+        text: "You successfully uploaded food to your store.",
+        closeTimeout: 3000,
+      });
+
+      uploadNotification.open();
+    } catch (exception) {
+      // Notification for error
+      let uploadErrorNotification = f7.notification.create({
+        icon: '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="28" height="28" viewBox="0 0 256 256" xml:space="preserve"><defs></defs><g style="stroke: none; stroke-width: 0; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: none; fill-rule: nonzero; opacity: 1;" transform="translate(1.4065934065934016 1.4065934065934016) scale(2.81 2.81)" ><path d="M 45 88.11 h 40.852 c 3.114 0 5.114 -3.307 3.669 -6.065 L 48.669 4.109 c -1.551 -2.959 -5.786 -2.959 -7.337 0 L 0.479 82.046 c -1.446 2.758 0.555 6.065 3.669 6.065 H 45 z" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: rgb(214,0,0); fill-rule: nonzero; opacity: 1;" transform=" matrix(1 0 0 1 0 0) " stroke-linecap="round" /><path d="M 45 64.091 L 45 64.091 c -1.554 0 -2.832 -1.223 -2.9 -2.776 l -2.677 -25.83 c -0.243 -3.245 2.323 -6.011 5.577 -6.011 h 0 c 3.254 0 5.821 2.767 5.577 6.011 L 47.9 61.315 C 47.832 62.867 46.554 64.091 45 64.091 z" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: rgb(255,255,255); fill-rule: nonzero; opacity: 1;" transform=" matrix(1 0 0 1 0 0) " stroke-linecap="round" /><circle cx="44.995999999999995" cy="74.02600000000001" r="4.626" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: rgb(255,255,255); fill-rule: nonzero; opacity: 1;" transform="  matrix(1 0 0 1 0 0) "/></g></svg>',
+        title: "Failed to upload!",
+        text: "You have a problem while uploading food to your store.",
+        closeTimeout: 3000,
+      });
+
+      uploadErrorNotification.open();
+
+      console.error("Error occured while uploading food: ", exception);
+    }
+
+    // Clear all input tags after upload
+    document.getElementById("id_Food_Image").src =
+      "https://cdn4.iconfinder.com/data/icons/small-n-flat/24/user-alt-512.png";
+    const form = document.getElementById("foodInfoForm");
+    form.reset();
+
+    // Clear input tags after submit
   };
 </script>
 
@@ -70,7 +110,7 @@
       </Link>
       <div class="title">Orders</div>
       <div class="right">
-        <a href="/" class="link panel-open" data-panel="left">
+        <a href="#" class="link panel-open" data-panel="left">
           <svg
             width="24"
             height="24"
@@ -122,9 +162,7 @@
       <div class="toolbar toolbar-bottom tabbar tab-style-1 mb-2">
         <div class="toolbar-inner">
           <Link tabLink="#tab-1" tabLinkActive>All</Link>
-          <Link href="/fakeorder/" class="bg-yellow-300 rounded-3xl px-8"
-            >Fake Order</Link
-          >
+          <Link href="/fakeorder/" class="bg-yellow-300 rounded-3xl px-8">Fake Order</Link>
           <Link tabLink="#tab-3">Done</Link>
         </div>
       </div>
@@ -160,14 +198,16 @@
                             <ul>
                               <li class="item-price">${foodItem.Food_Price}</li>
                               <li class="">2x</li>
-                              <li class="text-primary item-total">$11.6</li>
+                              <li class="text-primary item-total">
+                                {foodItem.Food_Price_Old}
+                              </li>
                             </ul>
                           </div>
                         </div>
                       </div>
                     </div>
                     <div class="swipeout-actions-right">
-                      <a href="/" class="swipeout-delete">
+                      <a href="#" class="swipeout-delete">
                         <svg
                           width="22"
                           height="23"
@@ -194,12 +234,12 @@
     <br /><br />
     <center>
       <form id="foodInfoForm" on:submit={uploadFoodItem}>
-        {#if Food_Image}
+        {#if foodImage}
           <img
             id="id_Food_Image"
             class="Food_Image w-[20vw] h-[20vw]"
             name="Food_Image"
-            src={Food_Image}
+            src={foodImage}
             alt="food image"
             on:click={() => {
               fileinput.click();
@@ -231,7 +271,7 @@
           type="text"
           placeholder="Enter Food Title..."
           id="foodbox1"
-          name="Food_Title"
+          name="food_title"
           required
           class="text-align-center text-3xl w-[60vw]"
           style="color:white; background-color:#a79c91;border-radius:10px;"
@@ -241,7 +281,7 @@
           type="text"
           placeholder="Enter Food Description..."
           id="foodbox2"
-          name="Food_Description"
+          name="food_description"
           required
           class="text-align-center text-3xl w-[60vw]"
           style="color:white; background-color:#a79c91;border-radius:10px;"
@@ -251,15 +291,16 @@
           type="number"
           placeholder="Enter Food Price..."
           id="foodbox3"
-          name="Food_Price"
+          name="food_price"
           required
+          step="0.01"
           class="text-align-center text-3xl w-[60vw]"
           style="color:white; background-color:#a79c91;border-radius:10px;"
         />
         <br />
         <select
           id="dropOffLocation"
-          name="Food_Tag"
+          name="food_tag"
           placeholder="Select Tag"
           required
           class="text-white text-align-center pb-5 pt-5 w-[60vw]"
@@ -285,38 +326,6 @@
       </form>
     </center>
   </div>
-
-  <!-- Upload Food Drafting Function
-
-const uploadFood = async () => {
-	const user_data = await get_user($user.$id);
-	const file = document.getElementById('uploader').files[0];
-	const fileData = await storage.createFile('65869debdfc84bdec4a1', ID.unique(), file);
-	const food_image_url = await storage.getFilePreview('65869debdfc84bdec4a1', fileData.$id);
-	await databases.updateDocument(IDEAS_DATABASE_ID, IDEAS_COLLECTION_ID, user_data.documents[0].$id, 
-		{   $user.$id, food_image_url: food_image_url.toString(), food_title: formData.get('Food_Title'), 
-			food_description: formData.get('FoodDesc'), food_price: formData.get('Food_Price'), food_tag: formData.get('Food_Tag')		});
-	e.target.reset();
-	invalidateAll();
-	fetchUserData();
-	f7router.navigate('/shopping-cart/');		}
-
-
-
-
-			// IF need more help, this function is similar too
-    const change_balance = async (e) => {
-        e.preventDefault();
-        const user_data = await get_user($user.$id);
-        const formData = new FormData(e.target);
-        const balance_input = formData.get('balance');
-        if(user_data.total != 0){
-            await user_update_balance(user_data.documents[0].$id, $user.$id, balance_input);
-        }else{
-        await balance_regist($user.$id, balance_input);  }
-	    fetchUserData();
-        goto('/crud');     }
-	-->
 </Page>
 
 <style>

@@ -18,4 +18,5 @@ export const FOOD_TAG_HELADOS = "3";
 export const FOOD_TAG_FASTFOOD = "4";
 export const FOOD_TAG_BEBIDAS = "5";
 export const FOOD_TAG_ONDELIVERY = "6";
-export const FOOD_TAG_FAVOURITES = "7";
+export const FOOD_TAG_DONE = "7";
+export const FOOD_TAG_FAVOURITES = "8";

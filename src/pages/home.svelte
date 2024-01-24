@@ -1,19 +1,18 @@
 <script>
-  import { Page } from "framework7-svelte";
+  import { f7, Page } from "framework7-svelte";
   import { onMount } from "svelte";
   import { user } from "../js/user.js";
   import { getDocuments } from "../js/lotteries.js";
   import {
     APPWRITE_FOOD_COLLECTION_ID,
     FOOD_TAG_POPULAR,
-    FOOD_TAG_FAVOURITES,
+    FOOD_TAG_FAVOURITES
   } from "../js/constants.js";
 
   let foodItems = [];
 
   onMount(async () => {
     foodItems = (await getDocuments(APPWRITE_FOOD_COLLECTION_ID)).documents;
-    console.log(foodItems[0].Food_Title);
   });
 </script>
 
@@ -34,7 +33,7 @@
             {/if}
           </div>
           <div class="media">
-            <a href="/" class="link panel-open pt-8" data-panel="left">
+            <a href="#" class="link panel-open pt-8" data-panel="left">
               <svg
                 width="24"
                 height="24"
@@ -69,7 +68,7 @@
             >
           </div>
         </a>
-        <a href="/" class="link panel-open" data-panel="left">
+        <a href="#" class="link panel-open" data-panel="left">
           <svg
             width="24"
             height="24"

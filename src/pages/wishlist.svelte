@@ -33,7 +33,7 @@
       </Link>
       <div class="title">Favorites</div>
       <div class="right">
-        <a href="/" class="link panel-open" data-panel="left">
+        <a href="#" class="link panel-open" data-panel="left">
           <svg
             width="24"
             height="24"
