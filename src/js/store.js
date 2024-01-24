@@ -2,8 +2,17 @@
 import { createStore } from 'framework7/lite';
 import { writable } from 'svelte/store';
 
+<<<<<<< HEAD
 export let foodStore = writable("");
 export let dropoffStore = writable("");
+=======
+export const businessLocationStore = writable('');
+export const dropoffLocationStore = writable('');
+export const orderStatusStore = writable('');
+export let foodStore = writable("");
+export let dropoffStore = writable("");
+export const currentMenuItem = writable('My Order');
+>>>>>>> 8820a501e45fdc447782068375bfc15875bf753d
 
 const store = createStore({
   state: {
