@@ -65,16 +65,6 @@
 		
 	</div>
 
-<!-- <script>
-export default (props) => {
-    const openDemo1 = () => {
-		$('.add-wishlist-btn').toggleClass('active');
-    }
-	return $render;
-}
-</script> -->
-
-
 <script>
     import { Link } from 'framework7-svelte';
     import { foodStore, businessLocationStore } from '../js/store.js';
