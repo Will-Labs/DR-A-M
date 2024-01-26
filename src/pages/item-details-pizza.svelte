@@ -67,8 +67,10 @@
 
 <script>
     import { Link } from 'framework7-svelte';
-    import { foodStore } from '../js/store.js';
+    import { foodStore, businessLocationStore } from '../js/store.js';
     import { onDestroy } from 'svelte';
+
+	let businessLocation = 'Naco Mall';
 
     let unsubscribe = foodStore.subscribe(value => {
         console.log(value);
@@ -76,6 +78,7 @@
 
     function placeOrder() {
         foodStore.set("Pizza Hut L Queso");
+		businessLocationStore.set(businessLocation);
     }
 
     onDestroy(() => {

@@ -6,8 +6,8 @@ export let foodStore = writable("");
 export let dropoffStore = writable("");
 export const businessLocationStore = writable('');
 export const dropoffLocationStore = writable('');
-export const orderStatusStore = writable('');
 export const currentMenuItem = writable('My Order');
+export let foodStore = writable("");
 
 const store = createStore({
   state: {
