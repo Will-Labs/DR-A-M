@@ -99,7 +99,7 @@
 		</div>
 	</div>
 	<div class="toolbar toolbar-bottom footer-button padding container">
-		<a href="/tracking/" on:click={setDropoffStore} class="button-large button rounded-lg btn-icon button-fill">Next <i class="fas fa-caret-right"></i></a>
+		<a href="/tracking/" on:click={setDropoffLocationStore} class="button-large button rounded-lg btn-icon button-fill">Next <i class="fas fa-caret-right"></i></a>
 	</div>
 </div>
 
@@ -114,7 +114,7 @@
 		dropoffLocationStore.set(null); // or set to another default value
 	});
 
-	function setDropoffStore() {
+	function setDropoffLocationStore() {
 		dropoffLocationStore.set(dropoffLocation);
 	}
 </script>
