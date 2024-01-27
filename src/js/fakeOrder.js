@@ -1,6 +1,7 @@
 import axios from "axios";
 import { v4 as uuidv4 } from "uuid";
 import { writable } from "svelte/store";
+import { f7 } from 'framework7-svelte';
 
 export const orderStatusStore = writable(null);
 
@@ -88,7 +89,16 @@ const manageOrders = () => {
     orderStatusStore.set(orderStatus);
 
     intervalId = setInterval(async () => {
+      
       await getOrderStatus();
+      let orderstatus_Notification;
+			orderstatus_Notification = f7.notification.create({
+				icon: '<svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-alert-circle" width="28" height="28" viewBox="0 0 24 24" stroke-width="1.5" stroke="#00b341" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M3 12a9 9 0 1 0 18 0a9 9 0 0 0 -18 0" /><path d="M12 8v4" /><path d="M12 16h.01" /></svg>',
+				title: "Order Status!",
+				text: orderStatus,
+				closeTimeout: 3000,
+			});
+      orderstatus_Notification.open();
       orderStatusStore.set(orderStatus);
     }, 5000);
   }
