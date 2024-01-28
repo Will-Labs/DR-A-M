@@ -409,7 +409,7 @@
               <li>
                 <div class="item-bx item-list">
                   <div class="dz-media">
-                    <a href="/restaurant/"
+                    <a href="/item-details-pizza/"
                       ><img src={foodItem.Food_Image} alt="" /></a
                     >
                     <div class="rating"><i class="fa fa-star"></i> 3.8</div>
@@ -417,7 +417,7 @@
                   <div class="dz-info">
                     <div class="dz-head">
                       <h6 class="item-title">
-                        <a href="/restaurant/">{foodItem.Food_Title}</a>
+                        <a href="/item-details-pizza/">{foodItem.Food_Title}</a>
                       </h6>
                     </div>
                     <div class="dz-meta">
