@@ -1,0 +1,8 @@
+{
+  "appId": "test.man.cool",
+  "appName": "recent.test.cool",
+  "webDir": "dist",
+  "server": {
+    "androidScheme": "https"
+  }
+}
