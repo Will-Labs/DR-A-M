@@ -33,7 +33,7 @@
     console.log("businessLocation:", businessLocation);
     console.log("dropoffLocation:", dropoffLocation);
     order = orders.createFakeOrder(foodValue, businessLocation, dropoffLocation);
-    orders.startOrderStatusUpdates();  }
+    orders.startOrderStatusUpdates();   }
 
 
   onMount(async () => {
