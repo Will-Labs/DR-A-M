@@ -9,6 +9,9 @@
     FOOD_TAG_FAVOURITES,
     FOOD_TAG_FEATURED,
   } from "../js/constants.js";
+    import { id } from "framework7/shared/utils.js";
+
+  export let f7router;
 
   let foodItems = [];
 
@@ -140,22 +143,24 @@
           </div>
         </div>
         <div class="swiper-slide">
-          <div class="card-overlay style-1 bg-primary"><a href="/item-details-tea">
-            <div class="dz-media">
-              <img src="../assets/img/products/featured/pic2.png" alt=""/>
-            </div>
-            <div class="dz-info">
-              <h5 class="item-title title">Indonesian Tea</h5>
-              <div class="dz-meta">
-                <ul>
-                  <li class="price">$150 <del>$304</del></li>
-                </ul>
+          <div class="card-overlay style-1 bg-primary">
+            <a href="/item-details-tea/">
+              <div class="dz-media">
+                <img src="../assets/img/products/featured/pic2.png" alt=""/>
               </div>
-            </div></a>
+              <div class="dz-info">
+                <h5 class="item-title title">Indonesian Tea</h5>
+                <div class="dz-meta">
+                  <ul>
+                    <li class="price">$150 <del>$304</del></li>
+                  </ul>
+                </div>
+              </div>
+            </a>
           </div>
         </div>
         <div class="swiper-slide">
-          <div class="card-overlay style-1 bg-primary"><a href="/item-details-kfc">
+          <div class="card-overlay style-1 bg-primary"><a href="/item-details-kfc/">
             <div class="dz-media">
               <img src="../assets/img/products/featured/pic3.png" alt=""/>
             </div>
@@ -170,7 +175,7 @@
           </div>
         </div>
         <div class="swiper-slide">
-          <div class="card-overlay style-1 bg-primary"><a href="/item-details-tylenol">
+          <div class="card-overlay style-1 bg-primary"><a href="/item-details-pills/">
             <div class="dz-media">
               <img src="../assets/img/products/featured/pic4.png" alt=""/>
             </div>
@@ -185,7 +190,7 @@
           </div>
         </div>
         <div class="swiper-slide">
-          <div class="card-overlay style-1 bg-primary"><a href="/item-details-bon">
+          <div class="card-overlay style-1 bg-primary"><a href="/item-details-bon/">
             <div class="dz-media">
               <img src="../assets/img/products/featured/pic5.png" alt=""/>
             </div>
@@ -205,13 +210,13 @@
             <swiper-slide style="width:auto" class="pl-4">
               <div class="card-overlay style-1 bg-primary">
                 <div class="dz-media">
-                  <a href="/item-details-pizza/">
+                  <a href="/item-detail/{foodItem.$id}">
                     <img src={foodItem.Food_Image} alt="No Img" />
                   </a>
                 </div>
                 <div class="dz-info">
                   <h5 class="item-title title">
-                    <a href="/item-details-pizza/">{foodItem.Food_Title}</a>
+                    <a href="/item-detail/{foodItem.$id}">{foodItem.Food_Title}</a>
                   </h5>
                   <div class="dz-meta">
                     <ul>
@@ -522,15 +527,15 @@
               <li>
                 <div class="item-bx item-list">
                   <div class="dz-media">
-                    <a href="/item-details-pizza/"
-                      ><img src={foodItem.Food_Image} alt="" /></a
-                    >
+                    <a href="/item-detail/{foodItem.$id}">
+                      <img src={foodItem.Food_Image} alt="" />
+                    </a>
                     <div class="rating"><i class="fa fa-star"></i> 3.8</div>
                   </div>
                   <div class="dz-info">
                     <div class="dz-head">
                       <h6 class="item-title">
-                        <a href="/item-details-pizza/">{foodItem.Food_Title}</a>
+                        <a href="/item-detail/{foodItem.$id}">{foodItem.Food_Title}</a>
                       </h6>
                     </div>
                     <div class="dz-meta">
