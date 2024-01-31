@@ -21,6 +21,7 @@
   ],
   "dependencies": {
     "@alpinejs/persist": "^3.13.5",
+    "@capacitor/android": "^5.6.0",
     "alpinejs": "^3.13.5",
     "apexcharts": "^3.45.2",
     "appwrite": "^13.0.1",
@@ -47,6 +48,8 @@
     "style-loader": "^3.3.4",
     "svelte": "^4.2.8",
     "svelte-loader": "^3.1.9",
+    "svelte-routing": "^2.11.0",
+    "svelte-spa-router": "^4.0.1",
     "swiper": "^11.0.5",
     "url-loader": "^4.1.1",
     "uuid": "^9.0.1",
